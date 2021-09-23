@@ -1,59 +1,16 @@
-$navbar-height: 96px;
+@import "./variables";
+@import "./base";
 
-html,
-body {
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  background-color: #2e293a;
-  color: #28282e;
-  font-family: 'Lato', sans-serif;
+.navbar {
+  position: absolute;
+  height: $navbar-height;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  background: #fbfbfb;
+  border-top: 1px solid #ddd;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  max-height: 100vh;
-  max-width: 100vw;
-}
-
-section#app {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  margin: auto;
-  max-width: 420px;
-  max-height: 820px;
-  overflow: hidden;
-  background-color: white;
-  box-shadow: 
-    0 10px 15px -3px rgba(0,0,0,0.1),
-    0 4px 6px -2px rgba(0,0,0,0.05);
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .app-wrap {
-    position: relative;
-    margin-bottom: $navbar-height;
-    height: 100%;
-    overflow-y: scroll;
-    max-width: 100vw;
-  }
-  
-  .navbar {
-    position: absolute;
-    height: $navbar-height;
-    width: 100%;
-    bottom: 0;
-    left: 0;
-    background: #fbfbfb;
-    border-top: 1px solid #DDD;
-    display: flex;
-    justify-content: space-around;
-    box-shadow: 
-      0 10px 20px 6px rgba(0,0,0,0.2);
-      z-index: 1;
+  justify-content: space-around;
+  box-shadow: 0 10px 20px 6px rgba(0, 0, 0, 0.2);
+  z-index: 1;
 }
