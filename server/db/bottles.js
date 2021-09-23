@@ -5,6 +5,14 @@ function getAllBottles (db = database) {
         .select()
 }
 
+function getBottleById (id, db = database) {
+    return db('bottles')
+    .select()
+    .where('id', id)
+    .first()
+}
+
 module.exports = {
-    getAllBottles
+    getAllBottles,
+    getBottleById
 }

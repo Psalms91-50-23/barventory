@@ -4,13 +4,15 @@ const path = require('path')
 const server = express()
 
 
-const barventoryRoutes = require('./routes/bottles')
+const bottleRoutes = require('./routes/bottles')
+const inventoryRoutes = require('./routes/inventory')
 
 server.use(express.json())
 server.use(express.static(path.join(__dirname, 'public')))
 
 
-server.use('/api/v1/barventory', barventoryRoutes)
+server.use('/api/v1/barventory/bottles', bottleRoutes)
+server.use('/api/v1/barventory/inventory', inventoryRoutes)
 
 server.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'))
