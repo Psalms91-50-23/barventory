@@ -39,14 +39,14 @@ export default function MeasureBottle(props) {
   }
 
   return (
-    <div class="measure-bottles">
-      <div class="measure-bottles-top">
+    <div className="measure-bottles">
+      <div className="measure-bottles-top">
         <h1>{props.bottle.name}</h1>
         <h2>{props.bottle.size}</h2>
 
       </div>
-      <div class="measure-bottles-main">
-        <label for="percent">
+      <div className="measure-bottles-main">
+        <label htmlFor="percent">
           Percent
           <input
             type="range"
@@ -62,24 +62,24 @@ export default function MeasureBottle(props) {
         <br />
         <br />
       </div>
-      <div class="measure-bottle-footer">
-        <div class="full-bottles">
-          <div class="full-boottles-buttons">
-            <button class="full-bottles-minus" onClick={() => removeFullBottle()}>
+      <div className="measure-bottle-footer">
+        <div className="full-bottles">
+          <div className="full-boottles-buttons">
+            <button className="full-bottles-minus" onClick={() => removeFullBottle()}>
               -
             </button>
             {fullBottles}
-            <button class="full-bottles-add" onClick={() => addFullBottle()}>
+            <button className="full-bottles-add" onClick={() => addFullBottle()}>
               +
             </button>
           </div>
-          <h2 class="full-bottles-title">
+          <h2 className="full-bottles-title">
             Full Bottles
           </h2>
           <br />
           <br />
         </div>
-        <div class="bottle-done">
+        <div className="bottle-done">
           <button onClick={() => next()} disabled={!canContinue()}>
             Done
           </button>

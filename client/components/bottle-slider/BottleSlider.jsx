@@ -68,11 +68,11 @@ export default function BottleSlider () {
 
   return (
     <>
-      <div class="bottle-slider-head">
-        <button class="bottle-slider-cancel">
+      <div className="bottle-slider-head">
+        <button className="bottle-slider-cancel">
           Cancel
         </button>
-        <div class="bottle-slider-progress">
+        <div className="bottle-slider-progress">
           {progress + 1}/{inventory.bottles.length + 1}
         </div>
       </div>
