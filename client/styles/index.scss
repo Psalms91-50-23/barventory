@@ -1,3 +1,5 @@
+$navbar-height: 96px;
+
 html,
 body {
   margin: 0;
@@ -28,4 +30,30 @@ section#app {
   box-shadow: 
     0 10px 15px -3px rgba(0,0,0,0.1),
     0 4px 6px -2px rgba(0,0,0,0.05);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .app-wrap {
+    position: relative;
+    margin-bottom: $navbar-height;
+    height: 100%;
+    overflow-y: scroll;
+    max-width: 100vw;
+  }
+  
+  .navbar {
+    position: absolute;
+    height: $navbar-height;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background: #fbfbfb;
+    border-top: 1px solid #DDD;
+    display: flex;
+    justify-content: space-around;
+    box-shadow: 
+      0 10px 20px 6px rgba(0,0,0,0.2);
+      z-index: 1;
 }

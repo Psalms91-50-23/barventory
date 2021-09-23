@@ -10,7 +10,7 @@ function App () {
   return (
     <>
       <h1>App</h1>
-      <div>
+      <div className="app-wrap">
         <Route exact path='/' component={Home}/>
         <Route path='/reports' component={Reports} />
         <Route path='/inventory' component={InventoryScreen}/>
