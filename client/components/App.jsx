@@ -4,7 +4,7 @@ import {BrowserRouter , Route, Switch} from 'react-router-dom'
 import Home from './Home'
 import InventoryScreen from './InventoryScreen'
 import Reports from './Reports'
-import BottleSlider from './BottleSlider'
+import BottleSlider from './bottle-slider/BottleSlider'
 import Nav from './Nav'
 
 function App () {
