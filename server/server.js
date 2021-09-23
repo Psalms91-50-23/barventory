@@ -4,7 +4,7 @@ const path = require('path')
 const server = express()
 
 
-const barventoryRoutes = require('./routes/barventory')
+const barventoryRoutes = require('./routes/bottles')
 
 server.use(express.json())
 server.use(express.static(path.join(__dirname, 'public')))
