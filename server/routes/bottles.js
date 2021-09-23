@@ -6,8 +6,14 @@ const db = require('../db/bottles.js')
 router.get('/', (req, res) => {
   db.getAllBottles()
   .then(bottles => {
-    console.log(bottles)
     res.json(bottles)
+  }) 
+})
+
+router.get('/:id', (req, res) => {
+  db.getBottleById(req.params.id)
+  .then(bottle => {
+    res.json(bottle)
   }) 
 })
 
