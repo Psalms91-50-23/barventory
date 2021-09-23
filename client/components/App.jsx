@@ -20,6 +20,7 @@ function App () {
             <Route path='/inventory' component={InventoryScreen}/>
             <Route path='/bottleslider' component={BottleSlider}/>
         </div>
+        <Nav/>
       </BrowserRouter>
     </>
   )
