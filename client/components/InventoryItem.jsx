@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import {Route} from 'react-router-dom'
 import { deleteBottle } from '../redux/inventory'
 import { deleteInventoryItem  } from '../redux/inventory'
+ 
 function BottleItem (props) {
 
   const { bottle, dispatch } = props

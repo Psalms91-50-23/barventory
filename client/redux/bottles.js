@@ -62,7 +62,6 @@ export function fetchBottles() {
 
     getBottles()
     .then(data => {
-      console.log("data for bottles ", data)
       dispatch(receive(data))
     }).catch(err => {
       dispatch(error(err))
