@@ -64,7 +64,7 @@ export default function MeasureBottle(props) {
       </div>
       <div className="measure-bottle-footer">
         <div className="full-bottles">
-          <div className="full-boottles-buttons">
+          <div className="full-bottles-buttons">
             <button className="full-bottles-minus" onClick={() => removeFullBottle()}>
               -
             </button>
@@ -81,7 +81,7 @@ export default function MeasureBottle(props) {
         </div>
         <div className="bottle-done">
           <button onClick={() => next()} disabled={!canContinue()}>
-            Done
+            Next
           </button>
         </div>
       </div>

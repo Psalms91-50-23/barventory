@@ -4,8 +4,8 @@ import {BrowserRouter , Route, Switch} from 'react-router-dom'
 import Home from './Home'
 import InventoryScreen from './InventoryScreen'
 import Reports from './Reports'
-import BottleSlider from './bottle-slider/BottleSlider'
 import Nav from './Nav'
+import BottleSlider from './bottle-slider/BottleSlider'
 
 function App () {
 
@@ -13,17 +13,16 @@ function App () {
     <>
       {/* <h1>App</h1> */}
       <BrowserRouter>
-        <div> 
-            <Route exact path='/' component={Home}/>
-            <Route path='/' component={Nav}/>       
-            <Route path='/reports' component={Reports} />
-            <Route path='/inventory' component={InventoryScreen}/>
-            <Route path='/bottleslider' component={BottleSlider}/>
+        <div className="app-wrap">
+          <Route exact path="/" component={Home} />
+          <Route path="/reports" component={Reports} />
+          <Route path="/inventory" component={InventoryScreen} />
+          <Route path="/bottleslider" component={BottleSlider} />
         </div>
-        <Nav/>
+        <Route path="/" component={Nav} />
       </BrowserRouter>
     </>
-  )
+  );
 }
 
 export default App
