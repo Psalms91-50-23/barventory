@@ -10,6 +10,7 @@ function BottleItem (props) {
 function deleteOnClick(id)
 {
   dispatch(deleteInventoryItem(id))
+  location.reload()
 }
 
   return (
