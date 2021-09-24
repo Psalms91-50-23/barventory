@@ -1,3 +1,5 @@
+import { getBottles } from "../apis/bottlesApi";
+
 const REQUEST = "barventory/bottles/request";
 const RECEIVE = "barventory/bottles/receive";
 const ERROR = "barventory/bottles/error";
@@ -57,11 +59,11 @@ function request() {
 export function fetchBottles() {
   return (dispatch) => {
     dispatch(request());
-    // Call Superagent
-    //.then(data => {
-    //   dispatch(receive(data))
-    // }).catch(err => {
-    //   dispatch(error(err))
-    // })
+    getBottles()
+    .then(data => {
+      dispatch(receive(data))
+    }).catch(err => {
+      dispatch(error(err))
+    })
   };
 }
