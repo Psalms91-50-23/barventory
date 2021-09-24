@@ -17,19 +17,19 @@ function deleteOnClick(id)
   return (
     <>
     
-      <div className="inventoryItem">
-        <div>
-          <img src={bottle.image} width="50"/>
-        </div>
-        <div className="margin-left">
-          <p>{bottle.name}</p>     
-        </div>
-        <div className="margin-left">
-          <p>{bottle.size} ml</p> 
-        </div>
-        <div className="margin-left">   
-          <button onClick={()=> deleteOnClick(bottle.id)}> delete </button>
-        </div>
+      <div className="block-display">
+          <div className="background-enter-round">
+            <img src={bottle.image} width="50"/>
+          </div>
+          <div className="margin-left">
+            <p>{bottle.name}</p>     
+          </div>
+          <div className="margin-left">
+            <p>{bottle.size}</p> 
+          </div>
+          <div className="margin-left margin-bot">   
+            <button onClick={()=> deleteOnClick(bottle.id)}> delete </button>
+          </div>
       </div>
     </>
   )
