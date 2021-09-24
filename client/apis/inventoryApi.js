@@ -14,7 +14,6 @@ export const deleteInventoryApi = (id) => {
     return request
     .delete(`${baseUrl}/delete/${id}`)
     .then(response => {
-        console.log("response inv api ", response )
       response.body
     })
   

@@ -12,8 +12,11 @@ router.get('/', (req, res) => {
 
 router.post('/addReport', (req, res) => {
     db.addReport(req.body)
-    .then(() => {
-      res.json(null)
+    .then(id => {
+        db.getReportById(id)
+        .then(report => {
+          res.json(report)
+        })
     })
 })
 
