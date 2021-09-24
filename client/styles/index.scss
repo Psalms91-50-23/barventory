@@ -44,7 +44,7 @@ button{
   padding: 5px;
   border-radius: 15px;
   background-color: white;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.632);
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.632);
   border-width: 4px;
 }
 
@@ -53,7 +53,7 @@ button:hover{
   color: black;
   font-weight:bolder;
   transform: translateY(-7px);
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.734);
+  box-shadow: 0px 8px 5px rgba(0, 0, 0, 0.734);
 }
 
 .table-list {
@@ -98,4 +98,11 @@ button:hover{
 // }
 .margin-bot{
  margin-bottom: 35px;
+}
+
+.center{
+  display: flex;
+  justify-content: center;
+  // align-items: center;
+  // text-align: center;
 }

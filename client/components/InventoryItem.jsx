@@ -27,8 +27,8 @@ function deleteOnClick(id)
           <div className="margin-left">
             <p>{bottle.size}</p> 
           </div>
-          <div className="margin-left margin-bot">   
-            <button onClick={()=> deleteOnClick(bottle.id)}> delete </button>
+          <div className="center">   
+            <button className="margin-bot" onClick={()=> deleteOnClick(bottle.id)}> delete </button>
           </div>
       </div>
     </>

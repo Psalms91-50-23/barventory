@@ -47,8 +47,8 @@ function AddBottle (props) {
                         <div>
                             <p>{bottle.name} {bottle.size} </p>
                         </div>
-                        <div className="margin-bot">
-                            <button onClick={()=> addOnClick(bottle.id)}> add </button> 
+                        <div className="center">
+                            <button className="margin-bot" onClick={()=> addOnClick(bottle.id)}> add </button> 
                         </div>
                     </div>)
                     
