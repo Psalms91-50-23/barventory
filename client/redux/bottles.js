@@ -1,3 +1,5 @@
+import { getBottles } from "../apis/bottlesApi";
+
 const REQUEST = "barventory/bottles/request";
 const RECEIVE = "barventory/bottles/receive";
 const ERROR = "barventory/bottles/error";
@@ -11,12 +13,14 @@ const initialState = {
 export default function bottlesReducer(state = initialState, action) {
   switch (action.type) {
     case REQUEST:
+      console.log('requesting')
       return {
         loading: true,
         bottles: [],
         error: undefined,
       };
     case RECEIVE:
+      console.log('receiving')
       return {
         loading: false,
         bottles: action.bottles,
@@ -35,6 +39,7 @@ export default function bottlesReducer(state = initialState, action) {
 
 //Add actions here
 function receive(bottles) {
+  console.log('Recieved:', bottles)
   return {
     type: RECEIVE,
     bottles: bottles,
@@ -57,11 +62,11 @@ function request() {
 export function fetchBottles() {
   return (dispatch) => {
     dispatch(request());
-    // Call Superagent
-    //.then(data => {
-    //   dispatch(receive(data))
-    // }).catch(err => {
-    //   dispatch(error(err))
-    // })
+    getBottles()
+    .then(data => {
+      dispatch(receive(data))
+    }).catch(err => {
+      dispatch(error(err))
+    })
   };
 }
