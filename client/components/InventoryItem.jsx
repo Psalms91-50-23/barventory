@@ -18,8 +18,8 @@ function deleteOnClick(id)
     <>
     
       <div className="block-display">
-          <div className="background-enter-round">
-            <img src={bottle.image} width="50"/>
+          <div>
+            <img className="margin-top margin-left" src={bottle.image} width="50"/>
           </div>
           <div className="margin-left">
             <p>{bottle.name}</p>     

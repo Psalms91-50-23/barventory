@@ -41,10 +41,10 @@ function AddBottle (props) {
                 bottlesState.bottles?.map(bottle => {
                     return (
                     <div className={"block-display"} key={`id_${bottle.id}`}>
-                        <div className="background-enter-round" >
-                            <img src={bottle.image} width="50"/>
-                        </div>
                         <div>
+                            <img className="margin-left margin-top" src={bottle.image} width="50"/>      
+                        </div>
+                        <div className="margin-left margin-top" >
                             <p>{bottle.name} {bottle.size} </p>
                         </div>
                         <div className="center">
