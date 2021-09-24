@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import {Route} from 'react-router-dom'
+import { fetchInventory  } from '../redux/inventory'
 
-function Home () {
+function Home (props) {
 
   return (
     <>
@@ -11,4 +12,4 @@ function Home () {
   )
 }
 
-export default Home
+export default connect() (Home)

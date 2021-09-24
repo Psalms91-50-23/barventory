@@ -1,7 +1,11 @@
+import { deleteInventoryApi, fetchAllInventory } from "../apis/inventoryApi";
+
 const REQUEST = "barventory/inventory/request";
 const RECEIVE = "barventory/inventory/receive";
 const ERROR = "barventory/inventory/error";
+const DELETE_INVENTORY = "DELETE_INVENTORY";
 
+// { id: 1, name: 'Smirnoff Vodka', size: 1000, image: '/img/transparent-smirnoff-vodka-1000ml.jpg', silhouette: '/img/silhouette-smirnoff-vodka-1000ml.jpg' }
 const initialState = {
   loading: true,
   inventory: [],
@@ -10,6 +14,10 @@ const initialState = {
 
 export default function inventoryReducer(state = initialState, action) {
   switch (action.type) {
+    case DELETE_INVENTORY:
+      return state.inventory.filter(
+        (inventoryItem) => action.id !== inventoryItem.id
+      );
     case REQUEST:
       return {
         loading: true,
@@ -33,7 +41,6 @@ export default function inventoryReducer(state = initialState, action) {
   }
 }
 
-
 //Add actions here
 function receive(inventory) {
   return {
@@ -55,16 +62,23 @@ function request() {
   };
 }
 
+function deleteInventoryAction(inventoryItemId) {
+  return {
+    type: DELETE_INVENTORY,
+    id: inventoryItemId,
+  };
+}
 
 export function fetchInventory() {
   return (dispatch) => {
     dispatch(request());
-    // Call Superagent
-    //.then(data => {
-    //   dispatch(receive(data))
-    // }).catch(err => {
-    //   dispatch(error(err))
-    // })
+    fetchAllInventory()
+      .then((inventoryRecieved) => {
+        dispatch(receive(inventoryRecieved));
+      })
+      .catch((err) => {
+        dispatch("error message in fetchInventoryThunk ", err.message);
+      });
   };
 }
 
@@ -89,5 +103,18 @@ export function deleteBottle(bottleId) {
     // }).catch(err => {
     //   dispatch(error(err))
     // })
+  };
+}
+
+export function deleteInventoryItem(inventoryItemId) {
+  return (dispatch) => {
+    dispatch(request());
+    deleteInventoryApi(inventoryItemId)
+      .then((result) => {
+        //dispatch(deleteInventoryAction(result))
+      })
+      .catch((err) => {
+        dispatch("error message in deleteInventoryThunk ", err.message);
+      });
   };
 }
