@@ -39,7 +39,6 @@ section#app {
 }
 
 .app-wrap {
-  position: relative;
   margin-bottom: $navbar-height;
   height: 100%;
   overflow-y: scroll;
@@ -48,7 +47,7 @@ section#app {
   flex-direction: column;
 }
 
-button {
+button, .button {
   -moz-appearance: none;
   -webkit-appearance: none;
   align-items: center;
@@ -71,6 +70,7 @@ button {
   text-align: center;
   white-space: nowrap;
   line-height: 1.5;
+  text-decoration: none;
 
   &:hover {
     border-color: #b5b5b5;
@@ -82,4 +82,9 @@ button {
     box-shadow: none;
     opacity: .5;
   }
+}
+
+
+.text-right {
+  text-align: right;
 }

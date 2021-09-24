@@ -1,77 +1,100 @@
-$measure-background: #666;
-
-.bottle-slider-head {
-  display: flex;
-  justify-content: space-between;
-  padding: 18px 15px;
-
-  .bottle-slider-progress {
-    font-size: 18px;
-    font-weight: 800;
-  }
-}
-
-.measure-bottles {
+.bottle-slider-screen {
+  position: absolute;
   height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 2;
   display: flex;
   flex-direction: column;
+  background-color: white;
 
-  .measure-bottles-top,
-  .measure-bottle-footer {
+  .bottle-slider-head {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     padding: 18px 15px;
-    background-color: $measure-background;
-    color: white;
-    h1, h2 {
-      font-weight: 600;
-      margin: 8px 0px;
+  
+    .bottle-slider-progress {
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .bottle-slider-cancel {
+      font-size: 14px;
     }
   }
   
-  .measure-bottle-footer {
-    padding: 8px 15px;
-    
-  }
-
-  .measure-bottles-main {
-    flex-grow: 1;
+  .measure-bottles {
+    height: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .full-bottles {
-      text-align: center;
-
-    .full-bottles-buttons {
+    flex-direction: column;
+  
+    .measure-bottles-top,
+    .measure-bottle-footer {
       display: flex;
-      justify-content: space-around;
+      justify-content: space-between;
       align-items: center;
-
-      button {
-        padding: 5px;
-        background: transparent;
-        border: none;
-        font-size: 38px;
-        font-weight: 800;
-        height: 1.5em;
-        color: $primary;
-      }
-
-      .full-bottles-value {
-        font-size: 22px;
-        margin: 0px 15px;
+      color: black;
+    }
+    
+    .measure-bottles-top {
+      padding: 0px 15px 18px;
+      font-weight: 400;
+      font-size: 16px;
+      color: #AAA;
+      border-bottom: 1px solid #ddd;
+      h1 {
         font-weight: 600;
-        
-        .full-bottles-title {
-          font-size: 14px;
-          font-weight: 400;
-          margin: 5px auto 0px;
-        }
+        margin: 8px 0px;
+        color: black;
       }
     }
-
+    
+    .measure-bottle-footer {
+      padding: 8px 15px 24px;
+      border-top: 1px solid #ddd;
+      
+    }
+  
+    .measure-bottles-main {
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .full-bottles {
+        text-align: center;
+  
+      .full-bottles-buttons {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+  
+        button {
+          padding: 5px;
+          background: transparent;
+          border: none;
+          font-size: 38px;
+          font-weight: 800;
+          height: 1.5em;
+          color: $primary;
+        }
+  
+        .full-bottles-value {
+          font-size: 22px;
+          margin: 0px 15px;
+          font-weight: 600;
+          
+          .full-bottles-title {
+            font-size: 14px;
+            font-weight: 400;
+            margin: 5px auto 0px;
+          }
+        }
+      }
+  
+    }
   }
 }
+

@@ -40,8 +40,14 @@ export default function MeasureBottle(props) {
   return (
     <div className="measure-bottles">
       <div className="measure-bottles-top">
-        <h1>{props.bottle.name}</h1>
-        <h2>{props.bottle.size}</h2>
+        <div>
+          Bottle
+          <h1>{props.bottle.name}</h1>
+        </div>
+        <div class="text-right">
+          <div>Volume</div>
+          <h1>{props.bottle.size}</h1>
+        </div>
       </div>
       <div className="measure-bottles-main">
         <label htmlFor="percent">

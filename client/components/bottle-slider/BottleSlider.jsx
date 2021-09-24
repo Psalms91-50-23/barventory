@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router";
+import { NavLink } from "react-router-dom";
 import MeasureBottle from "./MeasureBottle";
 
 export default function BottleSlider () {
@@ -67,17 +68,17 @@ export default function BottleSlider () {
   }
 
   return (
-    <>
+    <div class="bottle-slider-screen">
       <div className="bottle-slider-head">
-        <button className="bottle-slider-cancel">
+        <NavLink to="/inventory" className="button bottle-slider-cancel">
           Cancel
-        </button>
+        </NavLink>
         <div className="bottle-slider-progress">
           {progress + 1}/{inventory.bottles.length}
         </div>
       </div>
       <MeasureBottle bottle={currentBottle} complete={nextBottle} />
       {redirect && <Redirect to="/reports" />}
-    </>
+    </div>
   );
 }
