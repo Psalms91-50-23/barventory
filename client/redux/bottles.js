@@ -59,11 +59,14 @@ function request() {
 export function fetchBottles() {
   return (dispatch) => {
     dispatch(request());
+
     getBottles()
     .then(data => {
+      console.log("data for bottles ", data)
       dispatch(receive(data))
     }).catch(err => {
       dispatch(error(err))
     })
+    
   };
 }
