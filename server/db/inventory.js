@@ -11,6 +11,7 @@ function addInventoryBottle ( bottle, db = database) {
   newBottle = {
     name: bottle.name,
     size: bottle.size,
+    size_num: bottle.size_num,
     image:bottle.image,
     silhouette:bottle.silhouette
   }
