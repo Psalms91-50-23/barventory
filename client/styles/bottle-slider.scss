@@ -1,46 +1,64 @@
 $measure-background: #666;
 
 .bottle-slider-head {
+  display: flex;
+  justify-content: space-between;
+  padding: 18px 15px;
+
+  .bottle-slider-progress {
+    font-size: 18px;
+    font-weight: 800;
+  }
+}
+
+.measure-bottles {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .measure-bottles-top,
+  .measure-bottle-footer {
     display: flex;
     justify-content: space-between;
     padding: 18px 15px;
+    background-color: $measure-background;
+    color: white;
+  }
 
-    .bottle-slider-progress {
-        font-size: 18px;
-        font-weight: 800;
-    }
-}
-
-
-.measure-bottles {
-    height: 100%;
+  .measure-bottles-main {
+    flex-grow: 1;
     display: flex;
-    flex-direction: column;
-    
-    .measure-bottles-top,
-    .measure-bottle-footer {
-        display: flex;
-        justify-content: space-between;
-        padding: 18px 15px;
-        background-color: $measure-background;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .full-bottles {
+      width: 100px;
+      text-align: center;
+
+    .full-bottles-buttons {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      button {
+        padding: 5px;
+        background: transparent;
+        border: none;
+        font-size: 24px;
         color: white;
-    }
-    
-    .measure-bottles-main {
-        flex-grow: 1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        height: 1.5em;
+      }
+
+      .full-bottles-value {
+        font-size: 22px;
+      }
     }
 
-    .full-bottles {
-        .full-bottles-buttons {
-            display: flex;
-            justify-content: space-around;
-        }
-    
-        .full-bottles-title {
-            font-size: 24px;
-        }
+    .full-bottles-title {
+      font-size: 18px;
+      font-weight: 400;
+      margin: 5px auto 0px;
     }
+  }
 }

@@ -8,20 +8,30 @@
   width: 100%;
   bottom: 0;
   left: 0;
-  background: #fbfbfb;
+  background: #FAFAFA;
   border-top: 1px solid #ddd;
   display: flex;
   justify-content: space-around;
-  box-shadow: 0 10px 20px 6px rgba(0, 0, 0, 0.2);
+  align-items: center;
+  box-shadow: 0 1px 5px 2px rgba(0, 0, 0, 0.05);
   z-index: 1;
-}
 
-.bglight-blue {
-  background-color: #D1F2EB;
-}
+  a.navbar-item {
+    color: #000;
+    text-decoration: none;
+    font-size: 14px;
+    
+    svg {
+      color: #666;
+      display: block;
+      margin: 0 auto 5px;
+    }
+    &.active,
+    &.active svg {
+      color: #5DB075;
 
-.margin-top{
-  margin-top: 7%;
+    }
+  }
 }
 
 .margin-left{

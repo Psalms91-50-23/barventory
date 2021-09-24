@@ -21,7 +21,6 @@ export default function MeasureBottle(props) {
     }
   }
 
-
   // Disable the button if user hasn't set values
   function canContinue() {
     return percent != null;
@@ -43,7 +42,6 @@ export default function MeasureBottle(props) {
       <div className="measure-bottles-top">
         <h1>{props.bottle.name}</h1>
         <h2>{props.bottle.size}</h2>
-
       </div>
       <div className="measure-bottles-main">
         <label htmlFor="percent">
@@ -65,19 +63,21 @@ export default function MeasureBottle(props) {
       <div className="measure-bottle-footer">
         <div className="full-bottles">
           <div className="full-bottles-buttons">
-            <button className="full-bottles-minus" onClick={() => removeFullBottle()}>
+            <button
+              className="full-bottles-minus"
+              onClick={() => removeFullBottle()}
+            >
               -
             </button>
-            {fullBottles}
-            <button className="full-bottles-add" onClick={() => addFullBottle()}>
+            <div className="full-bottles-value">{fullBottles}</div>
+            <button
+              className="full-bottles-add"
+              onClick={() => addFullBottle()}
+            >
               +
             </button>
           </div>
-          <h2 className="full-bottles-title">
-            Full Bottles
-          </h2>
-          <br />
-          <br />
+          <h2 className="full-bottles-title">Full Bottles</h2>
         </div>
         <div className="bottle-done">
           <button onClick={() => next()} disabled={!canContinue()}>
