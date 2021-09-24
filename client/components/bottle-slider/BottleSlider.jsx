@@ -73,7 +73,7 @@ export default function BottleSlider () {
           Cancel
         </button>
         <div className="bottle-slider-progress">
-          {progress + 1}/{inventory.bottles.length + 1}
+          {progress + 1}/{inventory.bottles.length}
         </div>
       </div>
       <MeasureBottle bottle={currentBottle} complete={nextBottle} />
