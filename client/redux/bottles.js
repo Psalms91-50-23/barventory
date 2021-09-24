@@ -13,14 +13,12 @@ const initialState = {
 export default function bottlesReducer(state = initialState, action) {
   switch (action.type) {
     case REQUEST:
-      console.log('requesting')
       return {
         loading: true,
         bottles: [],
         error: undefined,
       };
     case RECEIVE:
-      console.log('receiving')
       return {
         loading: false,
         bottles: action.bottles,
@@ -39,7 +37,6 @@ export default function bottlesReducer(state = initialState, action) {
 
 //Add actions here
 function receive(bottles) {
-  console.log('Recieved:', bottles)
   return {
     type: RECEIVE,
     bottles: bottles,
