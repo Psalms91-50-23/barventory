@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import { fetchBottles } from '../redux/bottles'
-import { addBottle } from '../redux/inventory'
 import { addBottleToInventory } from '../apis/inventoryApi'
 import { Redirect } from "react-router";
 
@@ -31,27 +30,30 @@ function AddBottle (props) {
 
   return (
     <>
-      <h1>AddBottle</h1>
-      <ul>
-        {
-            bottlesState.bottles?.map(bottle => {
+        <div>
+            <h1>AddBottle</h1>
 
-                return (
-                <>  
-                    <div id={`bottle_ID_${bottle.id}`}>
-                        <li>{bottle.name} </li>
-                    </div>  
-                    <div>
-                        <button onClick={()=> addOnClick(bottle.id)}> add </button>
-                    </div> 
-                     
-                </>
-             
-                )
+        </div>
+        <ul>
+            {
+                bottlesState.bottles?.map(bottle => {
+                    return (
+                    <>  
+                        <div>
+                            <div id={`bottle_ID_${bottle.id}`}>
+                                <li key={`addBottle_${bottle.id}`}>{bottle.name} </li>
+                            </div>  
+                            <div>
+                                <button onClick={()=> addOnClick(bottle.id)}> add </button>
+                            </div> 
+                        </div>
+                    </>
                 
-            })
-        } 
-      </ul>
+                    )
+                    
+                })
+            } 
+        </ul>
       {redirect && <Redirect to="/inventory" />}
     </>
   )
