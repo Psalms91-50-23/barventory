@@ -20,8 +20,16 @@ function deleteReportById (id, db = database) {
     .delete()
 }
 
+function getReportById (id, db = database) {
+    return db('reports')
+        .select()
+        .where('id', id)
+        .first()
+  }
+
 module.exports = {
     getAllReports,
     addReport,
-    deleteReportById
+    deleteReportById,
+    getReportById
 }
