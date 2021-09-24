@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import {Route} from 'react-router-dom'
 import { fetchInventory } from '../redux/inventory'
 import InventoryItem from './InventoryItem'
-
+import Table from './Table'
 
 function InventoryScreen (props) {
 
@@ -20,17 +20,7 @@ function InventoryScreen (props) {
       <h1>Inventory List</h1>
 
     </div>
-      <ul>
-        {inventory.inventory?.map(bottle => {
-
-          return (
-            
-            <InventoryItem key={`inventory_id_${bottle.id}`} bottle={bottle}/>
-          )
-        })
-
-        }
-      </ul>
+    <Table inventory={inventory.inventory}/>
     </>
   )
 }
