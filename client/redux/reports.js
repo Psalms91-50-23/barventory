@@ -1,3 +1,5 @@
+import { getAllReports, addReportAPI, deleteReportAPI } from "../apis/reportsApi";
+
 const REQUEST = "barventory/reports/request";
 const RECEIVE = "barventory/reports/receive";
 const ERROR = "barventory/reports/error";
@@ -59,35 +61,35 @@ function request() {
 export function fetchReports() {
   return (dispatch) => {
     dispatch(request());
-    // Call Superagent
-    //.then(data => {
-    //   dispatch(receive(data))
-    // }).catch(err => {
-    //   dispatch(error(err))
-    // })
+    getAllReports()
+    .then(data => {
+      dispatch(receive(data))
+    }).catch(err => {
+      dispatch(error(err))
+    })
   };
 }
 
 export function addReport(report) {
   return (dispatch) => {
     dispatch(request());
-    // Call Superagent
-    //.then(data => {
-    //   dispatch(receive(data))
-    // }).catch(err => {
-    //   dispatch(error(err))
-    // })
+    addReportAPI(report)
+    .then(data => {
+      dispatch(receive(data))
+    }).catch(err => {
+      dispatch(error(err))
+    })
   };
 }
 
 export function deleteReport(reportId) {
   return (dispatch) => {
     dispatch(request());
-    // Call Superagent
-    //.then(data => {
-    //   dispatch(receive(data))
-    // }).catch(err => {
-    //   dispatch(error(err))
-    // })
+    deleteReportAPI(reportId)
+    .then(data => {
+      dispatch(receive(data))
+    }).catch(err => {
+      dispatch(error(err))
+    })
   };
 }
