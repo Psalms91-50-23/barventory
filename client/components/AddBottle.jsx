@@ -3,21 +3,22 @@ import { connect } from 'react-redux'
 import { fetchBottles } from '../redux/bottles'
 import { addBottleToInventory } from '../apis/inventoryApi'
 import { Redirect } from "react-router";
-
+import { fetchInventory } from '../redux/inventory';
 
 function AddBottle (props) {
 
-  const { bottlesState , dispatch} = props
+  const { bottlesState , dispatch, inventoryState } = props
   const [redirect, setRedirect] = useState(false);
-
+ // console.log("props in add bottle  ", props)
   useEffect(() => {
    
     dispatch(fetchBottles())
-    
+    dispatch(fetchInventory())
   },[])
 
   function addOnClick(id)
   {
+    
     addBottleToInventory(id)
     .then(() => {
       setRedirect(true)
@@ -28,28 +29,28 @@ function AddBottle (props) {
    
   }
 
+
   return (
+        
     <>
         <div>
             <h1>AddBottle</h1>
-
         </div>
         <ul>
             {
                 bottlesState.bottles?.map(bottle => {
                     return (
-                    <>  
+                    <div className={"block-display"} key={`id_${bottle.id}`}>
                         <div>
-                            <div id={`bottle_ID_${bottle.id}`}>
-                                <li key={`addBottle_${bottle.id}`}>{bottle.name} </li>
-                            </div>  
-                            <div>
-                                <button onClick={()=> addOnClick(bottle.id)}> add </button>
-                            </div> 
+                            <img src={bottle.image} width="50"/>
                         </div>
-                    </>
-                
-                    )
+                        <div>
+                            <p>{bottle.name} {bottle.size} </p>
+                        </div>
+                        <div className="margin-bot">
+                            <button onClick={()=> addOnClick(bottle.id)}> add </button> 
+                        </div>
+                    </div>)
                     
                 })
             } 

@@ -21,7 +21,7 @@ function InventoryScreen (props) {
       <h1>Inventory List</h1>
     </div>
     <div>
-      <Table inventory={inventory.inventory}/>
+      <Table key={"table"} inventory={inventory.inventory}/>
     </div>
     </>
   )
