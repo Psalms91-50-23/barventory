@@ -16,9 +16,10 @@ router.get('/addBottle/:id', (req, res) => {
 //add result of bottle id to inventory table
     dbBottles.getBottleById(req.params.id)
     .then(bottle  => {
+      //console.log("bottle what is it ", bottle)
         dbInventory.addInventoryBottle(bottle)
         .then(() => {
-          res.json(null)
+          res.send()
         })
     })
 })

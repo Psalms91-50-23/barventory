@@ -8,6 +8,7 @@ function getAllInventoryBottles (db = database) {
 
 //TODO addInventoryBottle
 function addInventoryBottle ( bottle, db = database) {
+  
   newBottle = {
     name: bottle.name,
     size: bottle.size,

@@ -5,7 +5,7 @@ import InventoryScreen from './InventoryScreen'
 import Reports from './Reports'
 import Nav from './Nav'
 import BottleSlider from './bottle-slider/BottleSlider'
-
+import AddBottle from './AddBottle'
 function App () {
 
  
@@ -19,6 +19,8 @@ function App () {
           <Route path="/reports" component={Reports} />
           <Route path="/inventory" component={InventoryScreen} />
           <Route path="/bottleslider" component={BottleSlider} />
+          <Route path="/addbottle" component={AddBottle} />
+          
         </div>
         <Route path="/" component={Nav} />
       </BrowserRouter>

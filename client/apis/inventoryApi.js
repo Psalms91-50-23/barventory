@@ -18,3 +18,12 @@ export const deleteInventoryApi = (id) => {
     })
   
   }
+
+  export const addBottleToInventory = (id) =>
+  {
+    return request
+    .get(`${baseUrl}/addBottle/${id}`)
+    .then(response => {
+      response.body
+    })
+  }

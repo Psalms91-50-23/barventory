@@ -5,7 +5,7 @@ function Table(props) {
   const { inventory } = props;
 
   return (
-    <ul class="table-list">
+    <ul className="table-list">
       {inventory?.map((bottle) => {
         return (
           <InventoryItem key={`inventory_id_${bottle.id}`} bottle={bottle} />

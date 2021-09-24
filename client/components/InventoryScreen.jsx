@@ -4,9 +4,10 @@ import {Route} from 'react-router-dom'
 import { fetchInventory } from '../redux/inventory'
 import InventoryItem from './InventoryItem'
 import Table from './Table'
+import AddBottle from './AddBottle'
+
 
 function InventoryScreen (props) {
-
 
   const { dispatch, inventory } = props
 
@@ -18,9 +19,10 @@ function InventoryScreen (props) {
     <>
     <div>
       <h1>Inventory List</h1>
-
     </div>
-    <Table inventory={inventory.inventory}/>
+    <div>
+      <Table inventory={inventory.inventory}/>
+    </div>
     </>
   )
 }
