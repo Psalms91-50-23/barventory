@@ -111,7 +111,7 @@ export function deleteInventoryItem(inventoryItemId) {
     dispatch(request());
     deleteInventoryApi(inventoryItemId)
       .then((result) => {
-        //dispatch(deleteInventoryAction(result))
+        dispatch(deleteInventoryAction(result))
       })
       .catch((err) => {
         dispatch("error message in deleteInventoryThunk ", err.message);
