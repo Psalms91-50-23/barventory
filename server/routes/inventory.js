@@ -23,7 +23,7 @@ router.get('/addBottle/:id', (req, res) => {
     })
 })
 
-router.get('/delete/:id', (req, res) => {
+router.delete('/delete/:id', (req, res) => {
     dbInventory.removeInventoryById(req.params.id)
     .then(() => {
       res.json(null)
