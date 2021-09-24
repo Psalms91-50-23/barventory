@@ -76,4 +76,10 @@ button {
     border-color: #b5b5b5;
     color: #363636;
   }
+  &[disabled] {
+    background-color: #fff;
+    border-color: #dbdbdb;
+    box-shadow: none;
+    opacity: .5;
+  }
 }

@@ -20,9 +20,19 @@ $measure-background: #666;
   .measure-bottle-footer {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 18px 15px;
     background-color: $measure-background;
     color: white;
+    h1, h2 {
+      font-weight: 600;
+      margin: 8px 0px;
+    }
+  }
+  
+  .measure-bottle-footer {
+    padding: 8px 15px;
+    
   }
 
   .measure-bottles-main {
@@ -33,7 +43,6 @@ $measure-background: #666;
   }
 
   .full-bottles {
-      width: 100px;
       text-align: center;
 
     .full-bottles-buttons {
@@ -45,20 +54,24 @@ $measure-background: #666;
         padding: 5px;
         background: transparent;
         border: none;
-        font-size: 24px;
-        color: white;
+        font-size: 38px;
+        font-weight: 800;
         height: 1.5em;
+        color: $primary;
       }
 
       .full-bottles-value {
         font-size: 22px;
+        margin: 0px 15px;
+        font-weight: 600;
+        
+        .full-bottles-title {
+          font-size: 14px;
+          font-weight: 400;
+          margin: 5px auto 0px;
+        }
       }
     }
 
-    .full-bottles-title {
-      font-size: 18px;
-      font-weight: 400;
-      margin: 5px auto 0px;
-    }
   }
 }
