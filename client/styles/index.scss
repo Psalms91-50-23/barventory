@@ -36,6 +36,9 @@
 
 .margin-left{
   margin-left: 20px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
 }
 
 
@@ -73,17 +76,16 @@ button:hover{
   display: block;
   margin-top: 10px;
   border-bottom: 1px solid #E8E8E8;
-  margin-bottom: 10px;
-  margin-right: 30px;
 
   .margin-bot{
     margin-bottom: 10px;
   }
 
-  img{
-    border-radius: 25px;
-  }
 }
+
+// img{
+//   border-radius: 25px;
+// }
 
 .block-display:hover{
   background-color: rgba(106, 106, 106, 0.122);
@@ -93,9 +95,10 @@ button:hover{
   background-color: rgba(106, 106, 106, 0.136);
 }
 
-// .background-enter-round{
-//   border-radius: 20px;
-// }\
+#background-round{
+  border-radius: 20px;
+  min-width: 50px;
+}
 
 .margin-top{
   margin-top: 10px;
@@ -110,4 +113,38 @@ button:hover{
   justify-content: center;
   // align-items: center;
   // text-align: center;
+}
+
+#circle-shape {
+  display:block;
+  margin: auto;
+  // padding-top: 10px;
+  
+  height: 90px;
+  width: auto;
+  // background: none;
+  border-radius: 100%;
+  // box-sizing: border-box;
+  // border-bottom: 50px solid transparent;
+}
+
+.margin-right{
+  margin-right: 25px;
+}
+
+.padding-top{
+  padding-top: 20px;
+}
+
+.padding-right{
+  padding-right: 10px;
+}
+
+.padding-left-n-right
+{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 0px 10px;
+  
 }
