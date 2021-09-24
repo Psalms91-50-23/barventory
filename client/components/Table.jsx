@@ -1,26 +1,18 @@
-import React from 'react'
-import InventoryItem from './InventoryItem'
+import React from "react";
+import InventoryItem from "./InventoryItem";
 
-function Table (props) {
+function Table(props) {
+  const { inventory } = props;
 
-    const { inventory } = props
+  return (
+    <ul class="table-list">
+      {inventory?.map((bottle) => {
+        return (
+          <InventoryItem key={`inventory_id_${bottle.id}`} bottle={bottle} />
+        );
+      })}
+    </ul>
+  );
+}
 
-    return (
-
-      <div>
-        <ul>
-            {inventory?.map(bottle => {
-
-            return (
-                <InventoryItem key={`inventory_id_${bottle.id}`} bottle={bottle}/>
-            )
-            })
-            }
-        </ul>
-      </div>
-      
-    )
-  }
-  
-  export default Table
-  
+export default Table;

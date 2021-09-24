@@ -38,12 +38,19 @@
   margin-left: 20px;
 }
 
-.inventoryItem{
-  display: flex;
-  flex-direction: row;
-  justify-content: left;
- 
-}
 button{
   cursor: pointer;
+}
+
+.table-list {
+  padding: 0px 25px;
+
+  .inventoryItem{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0px;
+    border-bottom: 1px solid #E8E8E8;
+  }
 }
