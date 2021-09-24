@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import {BrowserRouter , Route, Switch} from 'react-router-dom'
 import Home from './Home'
@@ -6,9 +6,13 @@ import InventoryScreen from './InventoryScreen'
 import Reports from './Reports'
 import BottleSlider from './bottle-slider/BottleSlider'
 import Nav from './Nav'
+import { fetchInventory } from '../redux/inventory'
+
 
 function App () {
 
+ 
+  
   return (
     <>
       {/* <h1>App</h1> */}
