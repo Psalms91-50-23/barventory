@@ -61,18 +61,60 @@ function AddBottle (props) {
   }
 
 
+  function onChangeSearch(e){
+    setSearchInput(e.target.value)
+    if(bottlesState.bottles.length)
+    {
+
+      const filteredInventoryName = inventoryState.inventory.map(inventoryItem => {
+          return inventoryItem.name
+
+      })
+
+      const filteredBottles = bottlesState.bottles.filter((bottle) => {
+        
+        if((bottle.name).toLowerCase().includes(searchInput.toLowerCase()) && !filteredInventoryName.includes(bottle.name))
+        {
+          return bottle
+        }
+
+      })
+      setFilteredAdd(filteredBottles)   
+    }
+  }
+
   return (
     <>
-      <PageHeader title="Add Bottle" leftAction={<NavLink className="button" to="/inventory">Back</NavLink>} />
+      {/* <ul className="table-list">
+        {filteredAdd?.map((bottle) => {
+          return (
+            <div className="inventoryItem" key={`id_${bottle.id}`}>
+              <img src={bottle.image} />
+              <p>
+                {bottle.name} {bottle.size}
+              </p>
+              <button onClick={() => addOnClick(bottle.id)}>Add</button>
+            </div>
+          );
+        })}
+      </ul> */}
+      <PageHeader
+        title="Add Bottle"
+        leftAction={
+          <NavLink className="button" to="/inventory">
+            Back
+          </NavLink>
+        }
+      />
       <div>
         <label htmlFor="search"></label>
         <input
           id="search"
           type="text"
           value={searchInput}
+          placeholder="search bottle names "
           onChange={(e) => onChangeSearch(e)}
-        ></input>
-        <button> search </button>
+        />
       </div>
       <ul className="table-list">
         {filteredAdd?.map((bottle) => {
@@ -82,7 +124,7 @@ function AddBottle (props) {
               <p>
                 {bottle.name} {bottle.size}
               </p>
-              <button onClick={() => addOnClick(bottle.id)}>Add</button>
+              <button onClick={() => addOnClick(bottle.id)}> add </button>
             </div>
           );
         })}
