@@ -11,7 +11,7 @@ function BottleItem (props) {
 function deleteOnClick(id)
 {
   dispatch(deleteInventoryItem(id))
-  location.reload()
+  // location.reload()
 }
 
   return (

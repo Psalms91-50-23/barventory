@@ -16,9 +16,12 @@ function Nav() {
           <BsFillHouseFill size={30} />
           Inventory
         </NavLink>
-        <NavLink className="navbar-item" activeClassName="active" to="/reports">
-          <AiOutlineAreaChart size={30} />
-          Reports
+        <NavLink 
+          className="navbar-item" 
+          activeClassName="active" 
+          to="/reports">
+            <AiOutlineAreaChart size={30} />
+            Reports
         </NavLink>
         <NavLink
           className="navbar-item"
