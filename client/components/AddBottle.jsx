@@ -59,22 +59,30 @@ function AddBottle (props) {
     }
   }
 
-  // function onChangeSearch(e){
+  function onChangeSearch(e){
 
-  //   console.log("search ", e.target.value)
-  //   setSearchInput(e.target.value)
+    //console.log("search ", e.target.value)
+    setSearchInput(e.target.value)
 
-  //   if(bottlesState.bottles.length)
-  //   {
+    if(bottlesState.bottles.length)
+    {
 
-  //     const filteredInventoryName = inventoryState.inventory.map(inventoryItem => {
-  //         return inventoryItem.name
+      const filteredInventoryName = inventoryState.inventory.map(inventoryItem => {
+          return inventoryItem.name
 
-  //     })
-  //     const filteredBottles = bottlesState.bottles.filter((bottle) => filteredInventoryName.includes())
-  //     setFilteredAdd(filteredBottles)   
-  //   }
-  // }
+      })
+
+      const filteredBottles = bottlesState.bottles.filter((bottle) => {
+        
+        if((bottle.name).toLowerCase().includes(searchInput.toLowerCase()) && !filteredInventoryName.includes(bottle.name))
+        {
+          return bottle
+        }
+
+      })
+      setFilteredAdd(filteredBottles)   
+    }
+  }
 
 
   return (
@@ -90,9 +98,9 @@ function AddBottle (props) {
             id="search" 
             type="text" 
             value={searchInput} 
+            placeholder="search bottle names "
             onChange={(e) => onChangeSearch(e)}
-          ></input>
-          <button> search </button>
+          />
         </div>
         <ul>
             {
