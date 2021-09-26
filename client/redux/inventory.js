@@ -15,15 +15,15 @@ const initialState = {
 export default function inventoryReducer(state = initialState, action) {
   switch (action.type) {
     case DELETE_INVENTORY:
-      return state.inventory.filter(
+      return {...state, inventory: state.inventory.filter(
         (inventoryItem) => action.id !== inventoryItem.id
-      );
+      )};
     case ADD_BOTTLE_TO_INVENTORY:
-      return [...state, action.bottle]
+      return {...state, inventory: action.bottle}
     case REQUEST:
       return {
         loading: true,
-        inventory: [],
+        inventory: state.inventory,
         error: undefined,
       };
     case RECEIVE:
@@ -89,7 +89,7 @@ export function fetchInventory() {
         dispatch(receive(inventoryRecieved));
       })
       .catch((err) => {
-        dispatch("error message in fetchInventoryThunk ", err.message);
+        dispatch(error(err.message));
       });
   };
 }
@@ -133,7 +133,7 @@ export function deleteInventoryItem(inventoryItemId) {
     dispatch(request());
     deleteInventoryApi(inventoryItemId)
       .then((result) => {
-        dispatch(deleteInventoryAction(result))
+        dispatch(deleteInventoryAction(inventoryItemId))
       })
       .catch((err) => {
         dispatch("error message in deleteInventoryThunk ", err.message);

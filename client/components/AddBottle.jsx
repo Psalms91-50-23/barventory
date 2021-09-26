@@ -4,17 +4,28 @@ import { fetchBottles } from '../redux/bottles'
 import { addBottleToInventory } from '../apis/inventoryApi'
 import { Redirect } from "react-router";
 import { fetchInventory } from '../redux/inventory';
+import { NavLink, useHistory } from "react-router-dom";
 
 function AddBottle (props) {
 
+
   const { bottlesState , dispatch, inventoryState } = props
-  const [redirect, setRedirect] = useState(false);
- // console.log("props in add bottle  ", props)
+  const [redirect, setRedirect] = useState(false)
+  const [ filteredAdd , setFilteredAdd ] = useState([])
+  const [ searchInput, setSearchInput ] = useState('')
+
+  const history = useHistory()
   useEffect(() => {
    
     dispatch(fetchBottles())
-    dispatch(fetchInventory())
   },[])
+
+  useEffect(() => {
+
+    filterBottles()  
+   
+  },[bottlesState])
+
 
   function addOnClick(id)
   {
@@ -29,29 +40,76 @@ function AddBottle (props) {
    
   }
 
+  function moveToAddBottle()
+  {
+    history.push("/inventory")
+  }
+
+  function filterBottles()
+  {
+    if(bottlesState.bottles.length)
+    {
+
+      const filteredInventoryName = inventoryState.inventory.map(inventoryItem => {
+          return inventoryItem.name
+
+      })
+      const filteredBottles = bottlesState.bottles.filter((bottle) => !filteredInventoryName.includes(bottle.name))
+      setFilteredAdd(filteredBottles)   
+    }
+  }
+
+  // function onChangeSearch(e){
+
+  //   console.log("search ", e.target.value)
+  //   setSearchInput(e.target.value)
+
+  //   if(bottlesState.bottles.length)
+  //   {
+
+  //     const filteredInventoryName = inventoryState.inventory.map(inventoryItem => {
+  //         return inventoryItem.name
+
+  //     })
+  //     const filteredBottles = bottlesState.bottles.filter((bottle) => filteredInventoryName.includes())
+  //     setFilteredAdd(filteredBottles)   
+  //   }
+  // }
+
 
   return (
         
     <>
-        <div>
+        <div className="flex-flow">
             <h1>AddBottle</h1>
+            <button onClick={moveToAddBottle}> inventory page </button>
+        </div>
+        <div className="flex-flow">
+          <label htmlFor="search"></label>
+          <input 
+            id="search" 
+            type="text" 
+            value={searchInput} 
+            onChange={(e) => onChangeSearch(e)}
+          ></input>
+          <button> search </button>
         </div>
         <ul>
             {
-                bottlesState.bottles?.map(bottle => {
+              filteredAdd?.map(bottle => {
+
                     return (
-                    <div className={"block-display"} key={`id_${bottle.id}`}>
-                        <div>
-                            <img src={bottle.image} width="50"/>
+                    <div className="block-display margin-right" key={`id_${bottle.id}`}>
+                        <div className="padding-top">
+                            <img id ="circle-shape" src={bottle.image}/>      
                         </div>
-                        <div>
-                            <p>{bottle.name} {bottle.size} </p>
+                        <div className="padding-left-n-right" >
+                            <p>{bottle.name} {bottle.size}</p>
                         </div>
-                        <div className="margin-bot">
-                            <button onClick={()=> addOnClick(bottle.id)}> add </button> 
+                        <div className="center">
+                            <button className="margin-bot" onClick={()=> addOnClick(bottle.id)}> add </button> 
                         </div>
-                    </div>)
-                    
+                    </div>)                  
                 })
             } 
         </ul>

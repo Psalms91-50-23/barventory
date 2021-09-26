@@ -11,25 +11,22 @@ function BottleItem (props) {
 function deleteOnClick(id)
 {
   dispatch(deleteInventoryItem(id))
-  location.reload()
+  // location.reload()
 }
 
   return (
     <>
     
-      <div className="inventoryItem">
-        <div>
-          <img src={bottle.image} width="50"/>
-        </div>
-        <div className="margin-left">
-          <p>{bottle.name}</p>     
-        </div>
-        <div className="margin-left">
-          <p>{bottle.size} ml</p> 
-        </div>
-        <div className="margin-left">   
-          <button onClick={()=> deleteOnClick(bottle.id)}> delete </button>
-        </div>
+      <div className="block-display">
+          <div className="padding-top">
+            <img id="circle-shape" src={bottle.image}/>
+          </div>
+          <div className="padding-left-n-right">
+            <p>{bottle.name} {bottle.size}</p>     
+          </div>
+          <div className="center">   
+            <button className="margin-bot" onClick={()=> deleteOnClick(bottle.id)}> delete </button>
+          </div>
       </div>
     </>
   )
