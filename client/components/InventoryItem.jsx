@@ -16,20 +16,17 @@ function deleteOnClick(id)
 
   return (
     <>
-    
-      <div className="block-display">
-          <div className="padding-top">
-            <img id="circle-shape" src={bottle.image}/>
-          </div>
-          <div className="padding-left-n-right">
-            <p>{bottle.name} {bottle.size}</p>     
-          </div>
-          <div className="center">   
-            <button className="margin-bot" onClick={()=> deleteOnClick(bottle.id)}> delete </button>
-          </div>
+      <div className="inventoryItem">
+          <img src={bottle.image} />
+          <p>
+            {bottle.name} {bottle.size}
+          </p>
+          <button
+            onClick={() => deleteOnClick(bottle.id)}
+          >delete</button>
       </div>
     </>
-  )
+  );
 }
 
 export default connect()(BottleItem)

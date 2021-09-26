@@ -26,7 +26,7 @@ function InventoryScreen (props) {
 
   return (
     <>
-      <div className="flex-flow">
+      <div>
         <h1>Inventory List</h1>
         <button onClick={moveToAddBottle}> add bottle </button>
       </div>

@@ -78,44 +78,37 @@ function AddBottle (props) {
 
 
   return (
-        
     <>
-        <div className="flex-flow">
-            <h1>AddBottle</h1>
-            <button onClick={moveToAddBottle}> inventory page </button>
-        </div>
-        <div className="flex-flow">
-          <label htmlFor="search"></label>
-          <input 
-            id="search" 
-            type="text" 
-            value={searchInput} 
-            onChange={(e) => onChangeSearch(e)}
-          ></input>
-          <button> search </button>
-        </div>
-        <ul>
-            {
-              filteredAdd?.map(bottle => {
-
-                    return (
-                    <div className="block-display margin-right" key={`id_${bottle.id}`}>
-                        <div className="padding-top">
-                            <img id ="circle-shape" src={bottle.image}/>      
-                        </div>
-                        <div className="padding-left-n-right" >
-                            <p>{bottle.name} {bottle.size}</p>
-                        </div>
-                        <div className="center">
-                            <button className="margin-bot" onClick={()=> addOnClick(bottle.id)}> add </button> 
-                        </div>
-                    </div>)                  
-                })
-            } 
-        </ul>
+      <div>
+        <h1>AddBottle</h1>
+        <button onClick={moveToAddBottle}> inventory page </button>
+      </div>
+      <div>
+        <label htmlFor="search"></label>
+        <input
+          id="search"
+          type="text"
+          value={searchInput}
+          onChange={(e) => onChangeSearch(e)}
+        ></input>
+        <button> search </button>
+      </div>
+      <ul className="table-list">
+        {filteredAdd?.map((bottle) => {
+          return (
+            <div className="inventoryItem" key={`id_${bottle.id}`}>
+              <img src={bottle.image} />
+              <p>
+                {bottle.name} {bottle.size}
+              </p>
+              <button onClick={() => addOnClick(bottle.id)}>Add</button>
+            </div>
+          );
+        })}
+      </ul>
       {redirect && <Redirect to="/inventory" />}
     </>
-  )
+  );
 }
 
 

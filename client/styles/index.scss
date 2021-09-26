@@ -8,7 +8,7 @@
   width: 100%;
   bottom: 0;
   left: 0;
-  background: #FAFAFA;
+  background: #fafafa;
   border-top: 1px solid #ddd;
   display: flex;
   justify-content: space-around;
@@ -20,7 +20,7 @@
     color: #000;
     text-decoration: none;
     font-size: 14px;
-    
+
     svg {
       color: #666;
       display: block;
@@ -29,126 +29,28 @@
     &.active,
     &.active svg {
       color: $primary;
-
     }
   }
-}
-
-.margin-left{
-  margin-left: 20px;
-  display: flex;
-  justify-content: center;
-  text-align: center;
-}
-
-
-button{
-  cursor: pointer;
-  padding: 5px;
-  border-radius: 15px;
-  background-color: white;
-  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.632);
-  border-width: 4px;
-}
-
-button:hover{
-  background-color: rgba(255, 254, 254, 0.748);
-  color: black;
-  font-weight:bolder;
-  transform: translateY(-7px);
-  box-shadow: 0px 8px 5px rgba(0, 0, 0, 0.734);
 }
 
 .table-list {
   padding: 0px 25px;
-
-  .inventoryItem{
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-      align-items: center;
-      padding: 10px 0px;
-      border-bottom: 1px solid #E8E8E8;
+  
+  .inventoryItem {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px 0px;
+    border-bottom: 1px solid #e8e8e8;
+  
+    img {
+      max-height: 60px;
     }
-}
-
-.block-display{
-  display: block;
-  margin-top: 10px;
-  border-bottom: 1px solid #E8E8E8;
-
-  .margin-bot{
-    margin-bottom: 10px;
+    
+    button {
+      justify-self: flex-end;
+      margin-left: auto;
+    }
   }
-
-}
-
-.flex-flow{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  padding: 20px 0px;
-}
-
-
-.block-display:hover{
-  background-color: rgba(106, 106, 106, 0.122);
-}
-
-.background-enter{
-  background-color: rgba(106, 106, 106, 0.136);
-}
-
-#background-round{
-  border-radius: 20px;
-  min-width: 50px;
-}
-
-.margin-top{
-  margin-top: 10px;
- }
-
-.margin-bot{
- margin-bottom: 35px;
-}
-
-.center{
-  display: flex;
-  justify-content: center;
-  // align-items: center;
-  // text-align: center;
-}
-
-#circle-shape {
-  display:block;
-  margin: auto;
-  // padding-top: 10px;
-  
-  height: 90px;
-  width: auto;
-  // background: none;
-  border-radius: 100%;
-  // box-sizing: border-box;
-  // border-bottom: 50px solid transparent;
-}
-
-.margin-right{
-  margin-right: 25px;
-}
-
-.padding-top{
-  padding-top: 20px;
-}
-
-.padding-right{
-  padding-right: 10px;
-}
-
-.padding-left-n-right
-{
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  padding: 0px 10px;
-  
 }
