@@ -52,6 +52,8 @@ export default function BottleSlider () {
       ...report,
       {
         bottleId: currentBottle.id,
+        bottleName: currentBottle.name,
+        bottleSize: currentBottle.size,
         fullBottles: fullBottles,
         percent: percent,
       },
