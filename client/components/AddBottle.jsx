@@ -59,23 +59,6 @@ function AddBottle (props) {
     }
   }
 
-  // function onChangeSearch(e){
-
-  //   console.log("search ", e.target.value)
-  //   setSearchInput(e.target.value)
-
-  //   if(bottlesState.bottles.length)
-  //   {
-
-  //     const filteredInventoryName = inventoryState.inventory.map(inventoryItem => {
-  //         return inventoryItem.name
-
-  //     })
-  //     const filteredBottles = bottlesState.bottles.filter((bottle) => filteredInventoryName.includes())
-  //     setFilteredAdd(filteredBottles)   
-  //   }
-  // }
-
 
   return (
     <>

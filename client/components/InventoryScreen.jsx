@@ -1,11 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-import {Route} from 'react-router-dom'
 import { fetchInventory } from '../redux/inventory'
-import InventoryItem from './InventoryItem'
 import Table from './Table'
-import AddBottle from './AddBottle'
-// import { Redirect } from 'react-router'
 import { useHistory } from "react-router-dom";
 
 
