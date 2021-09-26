@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Redirect } from "react-router";
 import { NavLink } from "react-router-dom";
 import MeasureBottle from "./MeasureBottle";
+import PageHeader from "../PageHeader";
 
 export default function BottleSlider () {
   //If the page should redirect to reports
@@ -69,14 +70,18 @@ export default function BottleSlider () {
 
   return (
     <div class="bottle-slider-screen">
-      <div className="bottle-slider-head">
-        <NavLink to="/inventory" className="button bottle-slider-cancel">
-          Cancel
-        </NavLink>
-        <div className="bottle-slider-progress">
-          {progress + 1}/{inventory.bottles.length}
-        </div>
-      </div>
+        <PageHeader
+          leftAction={
+            <NavLink to="/inventory" className="button">
+              Cancel
+            </NavLink>
+          }
+          rightAction={
+            <div className="bottle-slider-progress">
+              {progress + 1}/{inventory.bottles.length}
+            </div>
+          }
+        />
       <MeasureBottle bottle={currentBottle} complete={nextBottle} />
       {redirect && <Redirect to="/reports" />}
     </div>

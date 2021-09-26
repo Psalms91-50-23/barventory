@@ -1,14 +1,17 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import {Route} from 'react-router-dom'
+import PageHeader from "./PageHeader";
 
 function Reports () {
 
   return (
     <>
-      <h1>Reports</h1>
+      <PageHeader
+        title="Reports"
+      />
     </>
-  )
+  );
 }
 
 export default Reports

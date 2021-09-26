@@ -5,6 +5,7 @@ import { addBottleToInventory } from '../apis/inventoryApi'
 import { Redirect } from "react-router";
 import { fetchInventory } from '../redux/inventory';
 import { NavLink, useHistory } from "react-router-dom";
+import PageHeader from './PageHeader';
 
 function AddBottle (props) {
 
@@ -62,10 +63,7 @@ function AddBottle (props) {
 
   return (
     <>
-      <div>
-        <h1>AddBottle</h1>
-        <button onClick={moveToAddBottle}> inventory page </button>
-      </div>
+      <PageHeader title="Add Bottle" leftAction={<NavLink className="button" to="/inventory">Back</NavLink>} />
       <div>
         <label htmlFor="search"></label>
         <input

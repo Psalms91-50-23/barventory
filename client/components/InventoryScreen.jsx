@@ -2,7 +2,8 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { fetchInventory } from '../redux/inventory'
 import Table from './Table'
-import { useHistory } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
+import PageHeader from './PageHeader';
 
 
 function InventoryScreen (props) {
@@ -22,10 +23,7 @@ function InventoryScreen (props) {
 
   return (
     <>
-      <div>
-        <h1>Inventory List</h1>
-        <button onClick={moveToAddBottle}> add bottle </button>
-      </div>
+      <PageHeader title="Inventory" rightAction={<NavLink className="button" to="/addBottle">Add Bottle</NavLink>}/>
       <div>
         <Table key={"table"} inventory={inventoryState.inventory}/>
       </div>
