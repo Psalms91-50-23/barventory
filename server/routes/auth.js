@@ -17,11 +17,11 @@ router.post("/register", async (req, res) => {
   const name = req.body.name;
   const password = req.body.password;
   if (!username || !name || !password) {
-    res.status(400).send();
+    res.status(400).send("Please enter all feilds");
   }
 
   //Generate Password hash
-  const salt = await bcrypt.genSalt(934718249);
+  const salt = await bcrypt.genSalt(10);
   const passwordHash = await bcrypt.hash(password, salt);
   db.createUser({
     email: username,
@@ -29,7 +29,6 @@ router.post("/register", async (req, res) => {
     password_hash: passwordHash,
   })
     .then((user) => {
-      const token = generateAccessToken({ username: req.body.username });
       res.json({
         ...user,
         token: generateAccessToken({ username: req.body.username }),
@@ -44,26 +43,25 @@ router.post("/login", (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
   if (!username || !password) {
-    res.status(400).send();
+    res.status(400).send("Please enter all feilds");
   }
-  db.getUser(username)
-    .then(async (user) => {
-      if (user == null) {
-        return res
-          .status(401)
-          .send("Username or Password do not match our records");
-      }
-      const validPassword = await bcrypt.compare(password, user.password_hash);
-      if (validPassword) {
-        res.json({
-          username: user.email,
-          name: user.name,
-          token: generateAccessToken({ username: req.body.username }),
-        });
-      } else {
-        return res.status(401).send("Username and/or Password incorrect");
-      }
-    });
+  db.getUser(username).then(async (user) => {
+    if (user == null) {
+      return res
+        .status(401)
+        .send("Username or Password do not match our records");
+    }
+    const validPassword = await bcrypt.compare(password, user.password_hash);
+    if (validPassword) {
+      res.json({
+        username: user.email,
+        name: user.name,
+        token: generateAccessToken({ username: req.body.username }),
+      });
+    } else {
+      return res.status(401).send("Username and/or Password incorrect");
+    }
+  });
 });
 
 module.exports = router;

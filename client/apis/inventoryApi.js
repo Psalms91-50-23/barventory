@@ -1,29 +1,30 @@
-import request from 'superagent'
-const baseUrl = '/api/v1/barventory/inventory'
-
+import request from "superagent";
+const baseUrl = "/api/v1/barventory/inventory";
 
 export function fetchAllInventory() {
-
-    return request
+  const auth = "Bearer " + localStorage.getItem("token");
+  return request
     .get(baseUrl)
-    .then(response => response.body)
+    .set("Authorization", auth)
+    .then((response) => response.body);
 }
 
 export const deleteInventoryApi = (id) => {
-
-    return request
+  const auth = "Bearer " + localStorage.getItem("token");
+  return request
     .delete(`${baseUrl}/delete/${id}`)
-    .then(response => {
-      response.body
-    })
-  
-  }
+    .set("Authorization", auth)
+    .then((response) => {
+      response.body;
+    });
+};
 
-  export const addBottleToInventory = (id) =>
-  {
-    return request
+export const addBottleToInventory = (id) => {
+  const auth = "Bearer " + localStorage.getItem("token");
+  return request
     .get(`${baseUrl}/addBottle/${id}`)
-    .then(response => {
-      response.body
-    })
-  }
+    .set("Authorization", auth)
+    .then((response) => {
+      response.body;
+    });
+};

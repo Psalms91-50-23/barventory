@@ -1,22 +1,28 @@
-import request from 'superagent'
+import request from "superagent";
 
-const baseUrl = '/api/v1/barventory/reports'
+const baseUrl = "/api/v1/barventory/reports";
 
-export function getAllReports () {
-    return request
+export function getAllReports() {
+  const auth = "Bearer " + localStorage.getItem("token");
+  return request
     .get(baseUrl)
-    .then(res => res.body)
+    .set("Authorization", auth)
+    .then((res) => res.body);
 }
 
-export function addReportAPI (report) {
+export function addReportAPI(report) {
+  const auth = "Bearer " + localStorage.getItem("token");
   return request
-  .post(`${baseUrl}/addReport`)
-  .send(report)
-  .then(res => res.body)
+    .post(`${baseUrl}/addReport`)
+    .set("Authorization", auth)
+    .send(report)
+    .then((res) => res.body);
 }
 
-export function deleteReportAPI (id) {
+export function deleteReportAPI(id) {
+  const auth = "Bearer " + localStorage.getItem("token");
   return request
-  .get(`${baseUrl}/deleteReport/${id}`)
-  .then(res => res.body)
+    .get(`${baseUrl}/deleteReport/${id}`)
+    .set("Authorization", auth)
+    .then((res) => res.body);
 }

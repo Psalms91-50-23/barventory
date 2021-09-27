@@ -5,7 +5,6 @@ function getUserById(id, db = database) {
 }
 
 function createUser(user, db = database) {
-  
   return db("users").where("email", user.email).select().then(existingUsers => {
     if (existingUsers.length > 0) {
       throw "User with username already exists";
