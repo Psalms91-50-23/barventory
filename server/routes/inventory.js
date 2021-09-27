@@ -1,17 +1,18 @@
 const express = require('express')
 const router = express.Router()
+const authMiddleware = require("../middleware");
 
-const dbInventory = require('../db/inventory.js')
-const dbBottles = require('../db/bottles.js')
+const dbInventory = require('../db/inventory.js');
+const dbBottles = require('../db/bottles.js');
 
-router.get('/', (req, res) => {
+router.get('/', authMiddleware, (req, res) => {
     dbInventory.getAllInventoryBottles()
     .then(bottles => {
       res.json(bottles)
     }) 
   })
 
-router.get('/addBottle/:id', (req, res) => {
+router.get('/addBottle/:id', authMiddleware, (req, res) => {
 //get bottle by id from bottles table
 //add result of bottle id to inventory table
     dbBottles.getBottleById(req.params.id)
@@ -24,7 +25,7 @@ router.get('/addBottle/:id', (req, res) => {
     })
 })
 
-router.delete('/delete/:id', (req, res) => {
+router.delete('/delete/:id', authMiddleware, (req, res) => {
     dbInventory.removeInventoryById(req.params.id)
     .then(() => {
       res.json(null)

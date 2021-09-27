@@ -1,16 +1,17 @@
-const express = require('express')
-const router = express.Router()
+const express = require('express');
+const router = express.Router();
+const authMiddleware = require("../middleware");
 
-const db = require('../db/reports.js')
+const db = require('../db/reports.js');
 
-router.get('/', (req, res) => {
+router.get('/', authMiddleware, (req, res) => {
     db.getAllReports()
     .then(reports => {
       res.json(reports)
     }) 
   })
 
-router.post('/addReport', (req, res) => {
+router.post('/addReport', authMiddleware, (req, res) => {
     db.addReport(req.body)
     .then(id => {
         db.getReportById(id)
@@ -20,7 +21,7 @@ router.post('/addReport', (req, res) => {
     })
 })
 
-router.get('/deleteReport/:id', (req, res) => {
+router.get('/deleteReport/:id', authMiddleware, (req, res) => {
     db.deleteReportById(req.params.id)
     .then(() => {
       res.json(null)
