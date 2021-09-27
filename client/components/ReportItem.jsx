@@ -6,8 +6,6 @@ import { deleteInventoryItem  } from '../redux/inventory'
 function ReportItem (props) {
 
 const { data } = props
-console.log(data)
-//name, size, fullBottles, percent, more button
   return (
     <>
       <div className="inventoryItem">
