@@ -44,7 +44,7 @@ export default function MeasureBottle(props) {
           Bottle
           <h1>{props.bottle.name}</h1>
         </div>
-        <div class="text-right">
+        <div className="text-right">
           <div>Volume</div>
           <h1>{props.bottle.size}</h1>
         </div>
