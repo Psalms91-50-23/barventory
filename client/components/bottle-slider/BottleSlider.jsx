@@ -24,7 +24,7 @@ export function BottleSlider(props) {
   }
 
   function nextBottle(fullBottles, percent) {
-    setReport([
+    const newReports = [
       ...report,
       {
         bottleId: getCurrentBottle().id,
@@ -33,7 +33,8 @@ export function BottleSlider(props) {
         fullBottles: fullBottles,
         percent: percent
       }
-    ])
+    ]
+    setReport(newReports)
     //Check if there's a next bottle
     if (inventory.inventory[progress + 1] != null) {
       setProgress(progress + 1)
@@ -41,10 +42,9 @@ export function BottleSlider(props) {
       const newReport = {
         date: Date(),
         users_id: 1,
-        report_data: report
+        report_data: newReports
       }
       dispatch(addReport(newReport))
-      // then
       setRedirect(true)
     }
   }

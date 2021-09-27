@@ -75,7 +75,7 @@ export function addReport(report) {
     dispatch(request());
     addReportAPI(report)
     .then(data => {
-      dispatch(receive(data))
+      dispatch(receive([data]))
     }).catch(err => {
       dispatch(error(err))
     })
