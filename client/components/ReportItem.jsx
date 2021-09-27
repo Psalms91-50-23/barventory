@@ -2,7 +2,8 @@ import React from 'react'
 import {Route} from 'react-router-dom'
 import { deleteBottle } from '../redux/inventory'
 import { deleteInventoryItem  } from '../redux/inventory'
- 
+import MultiReport from "./MultiReport"
+
 function ReportItem (props) {
 
 const { data } = props
@@ -22,7 +23,7 @@ const { data } = props
           <p>{data.percent} %</p>
         </div>
         <div className="margin-left">   
-          <button> More... </button>
+          <button onClick={}> More... </button>
         </div>
       </div>
     </>
