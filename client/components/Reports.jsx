@@ -17,7 +17,6 @@ function Reports(props) {
 
   const findLatestReport = () => {
     var highestId = 0
-    
     props.reports.reports.map((each) => {
       if (each.id > highestId) {
         highestId = each.id

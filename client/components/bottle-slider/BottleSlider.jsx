@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react"
 import { Redirect } from "react-router";
 import { NavLink } from "react-router-dom";
 import MeasureBottle from "./MeasureBottle";
 import PageHeader from "../PageHeader";
-import React, { useState, useEffect } from "react"
 import { connect } from "react-redux"
 import { fetchInventory } from "../../redux/inventory"
+import { addReport } from "../../redux/reports"
 
 export function BottleSlider(props) {
   //If the page should redirect to reports
@@ -24,7 +24,7 @@ export function BottleSlider(props) {
   }
 
   function nextBottle(fullBottles, percent) {
-    setReport([
+    const newReports = [
       ...report,
       {
         bottleId: getCurrentBottle().id,
@@ -33,14 +33,18 @@ export function BottleSlider(props) {
         fullBottles: fullBottles,
         percent: percent
       }
-    ])
+    ]
+    setReport(newReports)
     //Check if there's a next bottle
     if (inventory.inventory[progress + 1] != null) {
       setProgress(progress + 1)
     } else {
-      // We've completed the report.
-      // TODO: POST Report to database
-      // then
+      const newReport = {
+        date: Date(),
+        users_id: 1,
+        report_data: newReports
+      }
+      dispatch(addReport(newReport))
       setRedirect(true)
     }
   }

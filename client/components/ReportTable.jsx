@@ -7,17 +7,13 @@ import ReportItem from "./ReportItem";
 
 function ReportTable(props) {
   const { report } = props;
-  const data = JSON.parse(report.report_data)
-
-  const getDataById = (id) => {
-    return (data.find(d => d.id == id)) 
-  }
+  const reportData = JSON.parse(report.report_data)
 
   return (
     <ul className="table-list">
-      {data?.map((data) => {
+      {reportData?.map((bottle) => {
         return (
-          <ReportItem key={`report_id_${data.id}`} data={getDataById(data.id)} />
+          <ReportItem key={`bottle_id_${bottle.id}`} data={bottle} />
         );
       })}
     </ul>
