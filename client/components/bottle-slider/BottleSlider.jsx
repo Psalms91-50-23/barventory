@@ -1,86 +1,75 @@
-import React, { useState } from "react";
-import { Redirect } from "react-router";
-import { NavLink } from "react-router-dom";
-import MeasureBottle from "./MeasureBottle";
+import React, { useState, useEffect } from "react"
+import { Redirect } from "react-router"
+import { NavLink } from "react-router-dom"
+import MeasureBottle from "./MeasureBottle"
+import { connect } from "react-redux"
+import { fetchInventory } from "../../redux/inventory"
 
-export default function BottleSlider () {
+export function BottleSlider(props) {
   //If the page should redirect to reports
-  const [redirect, setRedirect] = useState(false);
-
+  const [redirect, setRedirect] = useState(false)
+  const { dispatch, inventory } = props
   // Current bottle index. eg 4 would be 4th/15 bottles
-  const [progress, setProgress] = useState(0);
+  const [progress, setProgress] = useState(0)
+  const [report, setReport] = useState([])
   
-  const [report, setReport] = useState([]);
+  useEffect(() => {
+    dispatch(fetchInventory())
+  }, [])
 
-  const inventory = {
-    bottles: [
-      {
-        id: 0,
-        name: "Beefeater 24",
-        size: "700ml",
-        image:
-          "https://taumarunui.superliquor.co.nz/images/thumbs/0001908_550.jpeg",
-      },
-      {
-        id: 1,
-        name: "Baileys The Original Irish Cream",
-        size: "1 Litre",
-        image:
-          "https://taumarunui.superliquor.co.nz/images/thumbs/0000311_baileys-irish-cream-1-litre_550.jpeg",
-      },
-      {
-        id: 2,
-        name: "Absolut Elyx",
-        size: "700ml",
-        image:
-          "https://taumarunui.superliquor.co.nz/images/thumbs/0002561_absolut-elyx-700ml_550.jpeg",
-      },
-      {
-        id: 3,
-        name: "Ballantine's Finest Blended",
-        size: "1 Litre",
-        image:
-          "https://taumarunui.superliquor.co.nz/images/thumbs/0001845_550.jpeg",
-      },
-    ],
-  };
-
-  const currentBottle = inventory.bottles[progress];
+  const getCurrentBottle = () => {
+    return inventory.inventory[progress]
+  }
 
   function nextBottle(fullBottles, percent) {
     setReport([
       ...report,
       {
-        bottleId: currentBottle.id,
-        bottleName: currentBottle.name,
-        bottleSize: currentBottle.size,
+        bottleId: getCurrentBottle().id,
+        bottleName: getCurrentBottle().name,
+        bottleSize: getCurrentBottle().size,
         fullBottles: fullBottles,
-        percent: percent,
-      },
-    ]);
+        percent: percent
+      }
+    ])
     //Check if there's a next bottle
-    if (inventory.bottles[progress + 1] != null) {
-      setProgress(progress + 1);
+    if (inventory.inventory[progress + 1] != null) {
+      setProgress(progress + 1)
     } else {
       // We've completed the report.
       // TODO: POST Report to database
       // then
-      setRedirect(true);
+      setRedirect(true)
     }
   }
 
   return (
-    <div class="bottle-slider-screen">
-      <div className="bottle-slider-head">
-        <NavLink to="/inventory" className="button bottle-slider-cancel">
+    <div className='bottle-slider-screen'>
+      <div className='bottle-slider-head'>
+        <NavLink to='/inventory' className='button bottle-slider-cancel'>
           Cancel
         </NavLink>
-        <div className="bottle-slider-progress">
-          {progress + 1}/{inventory.bottles.length}
+        <div className='bottle-slider-progress'>
+          {progress + 1}/{inventory.inventory.length}
         </div>
       </div>
-      <MeasureBottle bottle={currentBottle} complete={nextBottle} />
-      {redirect && <Redirect to="/reports" />}
+      {inventory.loading ? (
+        <div>
+          <p>loading....</p>
+        </div>
+      ) : (
+        <>
+          <MeasureBottle bottle={getCurrentBottle()} complete={nextBottle} />
+          {redirect && <Redirect to='/reports' />}
+        </>
+      )}
     </div>
-  );
+  )
 }
+
+function mapStateToProps(globalState) {
+  return {
+    inventory: globalState.inventory
+  }
+}
+export default connect(mapStateToProps)(BottleSlider)
