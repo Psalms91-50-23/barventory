@@ -1,6 +1,7 @@
 @import "./variables";
 @import "./base";
 @import "./bottle-slider";
+@import "./home";
 
 .navbar {
   position: absolute;
@@ -71,5 +72,12 @@
     border: none;
     font-weight: 600;
     color: $primary;
+
+    &:active, &:focus {
+      outline: none;
+      box-shadow: none;
+      border: none;
+      text-decoration: underline;
+    }
   }
 }
