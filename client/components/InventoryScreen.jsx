@@ -14,10 +14,21 @@ function InventoryScreen(props) {
     dispatch(fetchInventory());
   }, []);
 
+  function logout() {
+    localStorage.removeItem('user');
+    localStorage.removeItem('token');
+    history.push("/");
+  }
+
   return (
     <>
       <PageHeader
         title="Inventory"
+        leftAction={
+          <button className="button" onClick={logout}>
+            Logout
+          </button>
+        }
         rightAction={
           <NavLink className="button" to="/addBottle">
             Add Bottles
@@ -33,7 +44,7 @@ function InventoryScreen(props) {
         </div>
         {inventoryState.inventory.length == 0 && (
           <div className="empty">
-            <h1 className="text-primary">Inventory empty 🍺</h1>
+            <h1 className="text-primary">Nothing to show 🍺</h1>
             <p>To Get Started, add some items to your inventory</p>
             <NavLink className="button" to="/addBottle">
               Add Bottles

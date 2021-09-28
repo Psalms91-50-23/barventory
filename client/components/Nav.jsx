@@ -1,8 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { BsFillHouseFill } from "react-icons/bs";
-import { AiOutlineAreaChart } from "react-icons/ai";
-import { FaWineBottle } from "react-icons/fa";
+import { FiClipboard } from "react-icons/fi";
+import { SiGoogleanalytics } from "react-icons/si";
+import { GiWineBottle } from "react-icons/gi";
 
 function Nav() {
   return (
@@ -13,22 +13,19 @@ function Nav() {
           activeClassName="active"
           to="/inventory"
         >
-          <BsFillHouseFill size={24} />
+          <FiClipboard size={24} />
           Inventory
         </NavLink>
-        <NavLink 
-          className="navbar-item" 
-          activeClassName="active" 
-          to="/reports">
-            <AiOutlineAreaChart size={24} />
-            Reports
+        <NavLink className="navbar-item" activeClassName="active" to="/reports">
+          <SiGoogleanalytics size={24} />
+          Reports
         </NavLink>
         <NavLink
           className="navbar-item"
           activeClassName="active"
           to="/bottleslider"
-          >
-          <FaWineBottle size={24} />
+        >
+          <GiWineBottle size={24} />
           Measure
         </NavLink>
       </div>

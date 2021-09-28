@@ -10,6 +10,11 @@ import MultiReport from './MultiReport'
 
 function App () {
 
+  //Go to Login page if not logged in
+  if (window.location.pathname != "/" && !localStorage.getItem("token")) {
+    window.location = "/";
+  }
+
   return (
     <>
       {/* <h1>App</h1> */}
