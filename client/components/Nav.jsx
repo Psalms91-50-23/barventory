@@ -13,14 +13,14 @@ function Nav() {
           activeClassName="active"
           to="/inventory"
         >
-          <BsFillHouseFill size={30} />
+          <BsFillHouseFill size={24} />
           Inventory
         </NavLink>
         <NavLink 
           className="navbar-item" 
           activeClassName="active" 
           to="/reports">
-            <AiOutlineAreaChart size={30} />
+            <AiOutlineAreaChart size={24} />
             Reports
         </NavLink>
         <NavLink
@@ -28,7 +28,7 @@ function Nav() {
           activeClassName="active"
           to="/bottleslider"
           >
-          <FaWineBottle size={30} />
+          <FaWineBottle size={24} />
           Measure
         </NavLink>
       </div>

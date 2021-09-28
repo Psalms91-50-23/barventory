@@ -18,14 +18,14 @@
   z-index: 1;
 
   a.navbar-item {
-    color: #000;
+    color: #BABCC2;
     text-decoration: none;
     font-size: 14px;
 
     svg {
-      color: #666;
+      color: #BABCC2;
       display: block;
-      margin: 0 auto 5px;
+      margin: 0 auto 10px;
     }
     &.active,
     &.active svg {
