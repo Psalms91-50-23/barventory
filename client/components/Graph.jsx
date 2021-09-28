@@ -3,6 +3,16 @@ import { ResponsiveBar } from "@nivo/bar";
 
 function Graph(props) {
   const { historyData } = props;
+  historyData.map((data) => {
+    console.log(Math.round((data.percent + Number.EPSILON) * 100) / 100);
+    data.fullBottles =
+      data.fullBottles +
+      Math.round((data.percent + Number.EPSILON) * 100) / 100;
+    data.fullBottles =
+      Math.round((data.fullBottles + Number.EPSILON) * 100) / 100;
+    console.log(data.fullBottles);
+  });
+  console.log(historyData);
   return (
     <>
       <h1>I'm a Graph</h1>
