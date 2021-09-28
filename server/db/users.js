@@ -16,6 +16,7 @@ function createUser(user, db = database) {
 function getUser(username, db = database) {
   return db("users")
     .where("email", username)
+    .select()
     .first();
 }
 

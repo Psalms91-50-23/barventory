@@ -1,31 +1,32 @@
 const database = require('./connection')
 
 //TODO getAllInventoryBottles
-function getAllInventoryBottles (db = database) {
-  return db('inventory')
-      .select()
+function getAllInventoryBottles (userId, db = database) {
+  return db('bottles_inventory')
+      .where("user_id", userId)
+      .select('bottle_id').then(bottleIds => {
+        bottleIds = bottleIds.map(i => i.bottle_id)
+        return db("bottles")
+          .whereIn("id", bottleIds)
+          .select();
+      })
 }
 
 //TODO addInventoryBottle
-function addInventoryBottle ( bottle, db = database) {
-  
-  newBottle = {
-    name: bottle.name,
-    size: bottle.size,
-    size_num: bottle.size_num,
-    image:bottle.image,
-    silhouette:bottle.silhouette
-  }
-  return db('inventory')
-    .insert(newBottle)
+function addInventoryBottle ( bottleId, userId, db = database) {
+  return db("bottles_inventory").insert({
+    user_id: userId,
+    bottle_id: bottleId,
+  });
 }
 
 //TODO deleteInventoryBottle
-function removeInventoryById (id, db = database) {
-    return db('inventory')
-    .select()
-    .where('id', id)
-    .delete()
+function removeInventoryById (bottle_id, user_id, db = database) {
+    return db("bottles_inventory")
+      .select()
+      .where("user_id", user_id)
+      .where("bottle_id", bottle_id)
+      .delete();
 }
 
 module.exports = {
