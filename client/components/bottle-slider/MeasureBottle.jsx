@@ -37,17 +37,13 @@ export default function MeasureBottle(props) {
     }
   }
 
-  console.log(props.bottleIMG)
-
   return (
     <div className="measure-bottles">
       <div className="measure-bottles-main">
         <div className="bottle-measure-image-container">
           <img src={props.bottleIMG} className="bottle-measure-image" />
         </div>
-        <label htmlFor="percent">
-          Percent
-          <input className='vertical-slider'
+          <input
             type="range"
             name="percent"
             min="0"
@@ -56,7 +52,8 @@ export default function MeasureBottle(props) {
             step="1"
             onChange={handlePercentChange}
           />
-          {percent}
+        <label className="slider-label" htmlFor="percent">
+          {Math.floor(percent*100)}%
         </label>
         <br />
         <br />
