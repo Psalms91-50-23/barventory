@@ -1,4 +1,6 @@
 $navbar-height: 80px;
 
-$primary: #5DB075;
+$primary: #2d9049;
 $error: #DC2626;
+
+$primary-gradient: linear-gradient(to bottom, $primary, lighten($primary, 10%));

@@ -9,7 +9,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: $primary;
+  background: $primary-gradient;
   color: white;
 
   img {
@@ -73,6 +73,12 @@
 
       .page-header {
         width: 100%;
+        background: white;
+        color: black;
+
+        button {
+          color: black;
+        }
       }
 
       input {
