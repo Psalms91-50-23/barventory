@@ -16,17 +16,17 @@ function Nav() {
           <FiClipboard size={24} />
           Inventory
         </NavLink>
-        <NavLink className="navbar-item" activeClassName="active" to="/reports">
-          <SiGoogleanalytics size={24} />
-          Reports
-        </NavLink>
         <NavLink
-          className="navbar-item"
+          className="navbar-item measure"
           activeClassName="active"
           to="/bottleslider"
         >
           <GiWineBottle size={24} />
           Measure
+        </NavLink>
+        <NavLink className="navbar-item" activeClassName="active" to="/reports">
+          <SiGoogleanalytics size={24} />
+          Reports
         </NavLink>
       </div>
     </>
