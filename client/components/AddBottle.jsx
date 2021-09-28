@@ -79,7 +79,7 @@ function AddBottle(props) {
       </div>
       {inventoryState.loading && <Loading />}
       {!inventoryState.loading && (
-        <ul className="table-list">
+        <ul className="table-list add-bottles-list">
           {filteredAdd?.map((bottle) => {
             return (
               <div className="inventoryItem" key={`id_${bottle.id}`}>

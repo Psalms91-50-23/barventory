@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import {Route} from 'react-router-dom'
 import { deleteBottle } from '../redux/inventory'
 import { deleteInventoryItem  } from '../redux/inventory'
+
+import { MdClose } from "react-icons/md";
  
 function BottleItem (props) {
 
@@ -22,7 +24,7 @@ function deleteOnClick(id)
           </p>
           <button
             onClick={() => deleteOnClick(bottle.id)}
-          >delete</button>
+          ><MdClose /></button>
       </div>
     </>
   );

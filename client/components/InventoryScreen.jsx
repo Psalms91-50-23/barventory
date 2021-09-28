@@ -15,8 +15,8 @@ function InventoryScreen(props) {
   }, []);
 
   function logout() {
-    localStorage.removeItem('user');
-    localStorage.removeItem('token');
+    localStorage.removeItem("user");
+    localStorage.removeItem("token");
     history.push("/");
   }
 
@@ -37,20 +37,18 @@ function InventoryScreen(props) {
       />
       {!inventoryState.loading && (
         <>
-        <div>
           {inventoryState.inventory.length > 0 && (
             <Table key={"table"} inventory={inventoryState.inventory} />
           )}
-        </div>
-        {inventoryState.inventory.length == 0 && (
-          <div className="empty">
-            <h1 className="text-primary">Nothing to show 🍺</h1>
-            <p>To Get Started, add some items to your inventory</p>
-            <NavLink className="button" to="/addBottle">
-              Add Bottles
-            </NavLink>
-          </div>
-        )}
+          {inventoryState.inventory.length == 0 && (
+            <div className="empty">
+              <h1 className="text-primary">Nothing to show 🍺</h1>
+              <p>To Get Started, add some items to your inventory</p>
+              <NavLink className="button" to="/addBottle">
+                Add Bottles
+              </NavLink>
+            </div>
+          )}
         </>
       )}
       {inventoryState.loading && <Loading />}

@@ -15,11 +15,16 @@ const initialState = {
 export default function inventoryReducer(state = initialState, action) {
   switch (action.type) {
     case DELETE_INVENTORY:
-      return {...state, inventory: state.inventory.filter(
-        (inventoryItem) => action.id !== inventoryItem.id
-      )};
+      return {
+        ...state, 
+        loading: false,
+        inventory: state.inventory.filter((item) => action.id !== item.id)
+      };
     case ADD_BOTTLE_TO_INVENTORY:
-      return {...state, inventory: action.bottle}
+      return {
+        ...state, 
+        inventory: action.bottle
+      }
     case REQUEST:
       return {
         loading: true,
