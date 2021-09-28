@@ -40,7 +40,7 @@ export function BottleSlider(props) {
       setProgress(progress + 1)
     } else {
       const newReport = {
-        date: Date(),
+        date: (new Date()).toUTCString(),
         users_id: 1,
         report_data: newReports
       }

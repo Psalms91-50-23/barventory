@@ -71,6 +71,7 @@
     "webpack-cli": "^4.5.0"
   },
   "dependencies": {
+    "@nivo/bar": "^0.73.1",
     "auth0": "^2.36.2",
     "express": "^4.17.1",
     "knex": "^0.21.17",
