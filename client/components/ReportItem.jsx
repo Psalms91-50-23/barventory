@@ -21,7 +21,7 @@ function ReportItem (props) {
           <p>{data.percent} %</p>
         </div>
         <div className="margin-left">   
-          <NavLink className="button" to={`/reports/${data.bottleName}`}>See</NavLink>
+          <NavLink className="button" to={`/reports/${data.bottleName}`}>History</NavLink>
         </div>
       </div>
     </>
