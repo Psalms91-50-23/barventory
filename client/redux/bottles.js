@@ -15,7 +15,7 @@ export default function bottlesReducer(state = initialState, action) {
     case REQUEST:
       return {
         loading: true,
-        bottles: [],
+        bottles: state.bottles,
         error: undefined,
       };
     case RECEIVE:

@@ -1,103 +1,64 @@
-import React, { useEffect, useState } from 'react'
-import { connect } from 'react-redux'
-import { fetchBottles } from '../redux/bottles'
-import { addBottleToInventory } from '../apis/inventoryApi'
+import React, { useEffect, useState } from "react";
+import { connect } from "react-redux";
+import { fetchBottles } from "../redux/bottles";
+import { addBottleToInventory } from "../apis/inventoryApi";
 import { Redirect } from "react-router";
-import { fetchInventory } from '../redux/inventory';
-import { NavLink, useHistory } from "react-router-dom";
-import PageHeader from './PageHeader';
+import { NavLink } from "react-router-dom";
+import PageHeader from "./PageHeader";
+import Loading from "./Loading";
 
-function AddBottle (props) {
-
-
-  const { bottlesState , dispatch, inventoryState } = props
-  const [redirect, setRedirect] = useState(false)
-  const [ filteredAdd , setFilteredAdd ] = useState([])
-  const [ searchInput, setSearchInput ] = useState('')
-
-  const history = useHistory()
-  useEffect(() => {
-   
-    dispatch(fetchBottles())
-  },[])
+function AddBottle(props) {
+  const { bottlesState, dispatch, inventoryState } = props;
+  const [redirect, setRedirect] = useState(false);
+  const [filteredAdd, setFilteredAdd] = useState([]);
+  const [searchInput, setSearchInput] = useState("");
 
   useEffect(() => {
+    dispatch(fetchBottles());
+  }, []);
 
-    filterBottles()  
-   
-  },[bottlesState])
+  useEffect(() => {
+    filterBottles();
+  }, [bottlesState]);
 
-
-  function addOnClick(id)
-  {
-    
-    addBottleToInventory(id)
-    .then(() => {
-      setRedirect(true)
-    })
-    .catch((err) => {
-        console.log("error ", err.message)
+  function addOnClick(id) {
+    addBottleToInventory(id).then(() => {
+      setRedirect(true);
     });
-   
   }
 
-  function moveToAddBottle()
-  {
-    history.push("/inventory")
-  }
-
-  function filterBottles()
-  {
-    if(bottlesState.bottles.length)
-    {
-
-      const filteredInventoryName = inventoryState.inventory.map(inventoryItem => {
-          return inventoryItem.name
-
-      })
-      const filteredBottles = bottlesState.bottles.filter((bottle) => !filteredInventoryName.includes(bottle.name))
-      setFilteredAdd(filteredBottles)   
+  function filterBottles() {
+    if (bottlesState.bottles.length) {
+      const filteredInventoryName = inventoryState.inventory.map(
+        (inventoryItem) => inventoryItem.name
+      );
+      const filteredBottles = bottlesState.bottles.filter(
+        (bottle) => !filteredInventoryName.includes(bottle.name)
+      );
+      setFilteredAdd(filteredBottles);
     }
   }
 
-
-  function onChangeSearch(e){
-    setSearchInput(e.target.value)
-    if(bottlesState.bottles.length)
-    {
-
-      const filteredInventoryName = inventoryState.inventory.map(inventoryItem => {
-          return inventoryItem.name
-
-      })
-
+  function onChangeSearch(e) {
+    setSearchInput(e.target.value);
+    if (bottlesState.bottles.length) {
+      const filteredInventoryName = inventoryState.inventory.map(
+        (inventoryItem) => inventoryItem.name
+      );
       const filteredBottles = bottlesState.bottles.filter((bottle) => {
-        
-        if((bottle.name).toLowerCase().includes(searchInput.toLowerCase()) && !filteredInventoryName.includes(bottle.name))
-        {
-          return bottle
+        if (
+          bottle.name.toLowerCase().includes(searchInput.toLowerCase()) &&
+          !filteredInventoryName.includes(bottle.name)
+        ) {
+          return bottle;
         }
-
-      })
-      setFilteredAdd(filteredBottles)   
+      });
+      setFilteredAdd(filteredBottles);
     }
   }
 
   return (
     <>
-      {/* <ul className="table-list">
-        {filteredAdd?.map((bottle) => {
-          return (
-            <div className="inventoryItem" key={`id_${bottle.id}`}>
-              <img src={bottle.image} />
-              <p>
-                {bottle.name} {bottle.size}
-              </p>
-              <button onClick={() => addOnClick(bottle.id)}>Add</button>
-            </div>
-          );
-        })}
-      </ul> */}
       <PageHeader
         title="Add Bottle"
         leftAction={
@@ -106,44 +67,42 @@ function AddBottle (props) {
           </NavLink>
         }
       />
-      <div>
+      <div className="container">
         <label htmlFor="search"></label>
         <input
           id="search"
           type="text"
           value={searchInput}
-          placeholder="search bottle names "
+          placeholder="Search..."
           onChange={(e) => onChangeSearch(e)}
         />
       </div>
-      <ul className="table-list">
-        {filteredAdd?.map((bottle) => {
-          return (
-            <div className="inventoryItem" key={`id_${bottle.id}`}>
-              <img src={bottle.image} />
-              <p>
-                {bottle.name} {bottle.size}
-              </p>
-              <button onClick={() => addOnClick(bottle.id)}> add </button>
-            </div>
-          );
-        })}
-      </ul>
+      {inventoryState.loading && <Loading />}
+      {!inventoryState.loading && (
+        <ul className="table-list">
+          {filteredAdd?.map((bottle) => {
+            return (
+              <div className="inventoryItem" key={`id_${bottle.id}`}>
+                <img src={bottle.image} />
+                <p>
+                  {bottle.name} {bottle.size}
+                </p>
+                <button onClick={() => addOnClick(bottle.id)}> add </button>
+              </div>
+            );
+          })}
+        </ul>
+      )}
       {redirect && <Redirect to="/inventory" />}
     </>
   );
 }
 
-
-function mapStateToProps(globalState){
-
-    return {
-
+function mapStateToProps(globalState) {
+  return {
     bottlesState: globalState.bottles,
-    inventoryState: globalState.inventory
-
-    }
+    inventoryState: globalState.inventory,
+  };
 }
 
-
-export default connect(mapStateToProps) (AddBottle)
+export default connect(mapStateToProps)(AddBottle);

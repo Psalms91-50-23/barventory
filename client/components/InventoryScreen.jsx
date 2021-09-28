@@ -1,41 +1,55 @@
-import React, { useEffect } from 'react'
-import { connect } from 'react-redux'
-import { fetchInventory } from '../redux/inventory'
-import Table from './Table'
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import { fetchInventory } from "../redux/inventory";
+import Table from "./Table";
 import { NavLink, useHistory } from "react-router-dom";
-import PageHeader from './PageHeader';
+import PageHeader from "./PageHeader";
+import Loading from "./Loading";
 
-
-function InventoryScreen (props) {
-
-  const { dispatch, inventoryState } = props
+function InventoryScreen(props) {
+  const { dispatch, inventoryState } = props;
   const history = useHistory();
 
   useEffect(() => {
-    dispatch(fetchInventory())
-  },[])
-
-  function moveToAddBottle()
-  {
-    //<NavLink to="/addBottle" />
-    history.push("/addBottle")
-  }
+    dispatch(fetchInventory());
+  }, []);
 
   return (
     <>
-      <PageHeader title="Inventory" rightAction={<NavLink className="button" to="/addBottle">Add Bottle</NavLink>}/>
-      <div>
-        <Table key={"table"} inventory={inventoryState.inventory}/>
-      </div>
+      <PageHeader
+        title="Inventory"
+        rightAction={
+          <NavLink className="button" to="/addBottle">
+            Add Bottles
+          </NavLink>
+        }
+      />
+      {!inventoryState.loading && (
+        <>
+        <div>
+          {inventoryState.inventory.length > 0 && (
+            <Table key={"table"} inventory={inventoryState.inventory} />
+          )}
+        </div>
+        {inventoryState.inventory.length == 0 && (
+          <div className="empty">
+            <h1 className="text-primary">Inventory empty 🍺</h1>
+            <p>To Get Started, add some items to your inventory</p>
+            <NavLink className="button" to="/addBottle">
+              Add Bottles
+            </NavLink>
+          </div>
+        )}
+        </>
+      )}
+      {inventoryState.loading && <Loading />}
     </>
-  )
+  );
 }
 
-
-function mapStateToProps(globalState){
-
+function mapStateToProps(globalState) {
   return {
-    inventoryState: globalState.inventory
-  }
+    inventoryState: globalState.inventory,
+  };
 }
-export default connect(mapStateToProps)(InventoryScreen)
+export default connect(mapStateToProps)(InventoryScreen);

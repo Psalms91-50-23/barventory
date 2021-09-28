@@ -2,9 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 function ReportItem (props) {
-
   const { data } = props
-
   return (
     <>
       <div className="inventoryItem">

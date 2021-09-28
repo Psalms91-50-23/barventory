@@ -1,17 +1,17 @@
 const express = require('express')
 const path = require('path')
-
 const server = express()
 
-
+const authRoutes = require('./routes/auth')
 const bottleRoutes = require('./routes/bottles')
 const inventoryRoutes = require('./routes/inventory')
 const reportRoutes = require('./routes/reports')
 
+
 server.use(express.json())
 server.use(express.static(path.join(__dirname, 'public')))
 
-
+server.use("/api/v1/barventory/auth", authRoutes);
 server.use('/api/v1/barventory/bottles', bottleRoutes)
 server.use('/api/v1/barventory/inventory', inventoryRoutes)
 server.use('/api/v1/barventory/reports', reportRoutes)

@@ -103,6 +103,14 @@ button,
 .text-right {
   text-align: right;
 }
+input,
+select,
+textarea {
+  background-color: #fff;
+  border-color: #e8e8e8;
+  border-radius: 0.375em;
+  color: #363636;
+}
 
 input:not([type="range"]),
 select,
@@ -127,6 +135,10 @@ textarea {
   margin-bottom: 14px;
   transition: border 140ms ease-out, box-shadow 140ms ease-out;
   width: 100%;
+  max-width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #f6f6f6;
 
   &::placeholder {
     color: #bdbdbd;
@@ -153,4 +165,21 @@ textarea {
 input,
 textarea {
   box-shadow: inset 0 0.0625em 0.125em rgb(10 10 10 / 5%);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.error {
+  color: $error;
+}
+
+.text-primary {
+  color: $primary;
+}
+
+.container {
+  padding-left: 25px;
+  padding-right: 25px;
 }
