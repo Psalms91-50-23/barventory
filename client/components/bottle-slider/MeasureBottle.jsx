@@ -37,9 +37,14 @@ export default function MeasureBottle(props) {
     }
   }
 
+  console.log(props.bottleIMG)
+
   return (
     <div className="measure-bottles">
       <div className="measure-bottles-main">
+        <div className="bottle-measure-image">
+          <img src={props.bottleIMG} />
+        </div>
         <label htmlFor="percent">
           Percent
           <input

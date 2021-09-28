@@ -78,7 +78,7 @@ export function BottleSlider(props) {
         </div>
       ) : (
         <>
-          <MeasureBottle bottle={getCurrentBottle()} complete={nextBottle} />
+          <MeasureBottle bottle={getCurrentBottle()} complete={nextBottle} bottleIMG={inventory.inventory[progress].image}/>
           {redirect && <Redirect to="/reports" />}
         </>
       )}
