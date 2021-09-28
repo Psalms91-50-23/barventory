@@ -1,11 +1,12 @@
 import React from "react";
 import PageHeader from "./PageHeader";
+import { NavLink } from  "react-router-dom"
+import { connect } from "react-redux"
 
 function MultiReport(props) {
 
-    const { bottleName } = props
-    const function ()
-
+  const { bottleName } = props
+  
   return (
     <>
       <PageHeader
@@ -16,6 +17,9 @@ function MultiReport(props) {
           </NavLink>
         }
       />
+      <h1>This is a multireport page</h1> 
     </>
   );
 }
+
+export default connect()(MultiReport);
