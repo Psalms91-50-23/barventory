@@ -6,6 +6,7 @@ import PageHeader from "../PageHeader";
 import { connect } from "react-redux"
 import { fetchInventory } from "../../redux/inventory"
 import { addReport } from "../../redux/reports"
+import Loading from "../Loading";
 
 export function BottleSlider(props) {
   //If the page should redirect to reports
@@ -40,7 +41,7 @@ export function BottleSlider(props) {
       setProgress(progress + 1)
     } else {
       const newReport = {
-        date: Date(),
+        date: (new Date()).toUTCString(),
         users_id: 1,
         report_data: newReports
       }
@@ -50,27 +51,39 @@ export function BottleSlider(props) {
   }
 
   return (
-    <div className='bottle-slider-screen'>
-      <div className='bottle-slider-head'>
-        <NavLink to='/inventory' className='button bottle-slider-cancel'>
-          Cancel
-        </NavLink>
-        <div className='bottle-slider-progress'>
-          {progress + 1}/{inventory.inventory.length}
+    <div className="bottle-slider-screen">
+      <div className="bottle-slider-head">
+        <div className="actions">
+          <NavLink to="/inventory" className="button bottle-slider-cancel">
+            Cancel
+          </NavLink>
+          <div className="bottle-slider-progress">
+            {progress + 1}/{inventory.inventory.length}
+          </div>
+        </div>
+        <div className="measure-bottles-top">
+          <div>
+            Bottle
+            <h1>{getCurrentBottle()?.name}</h1>
+          </div>
+          <div className="text-right">
+            <div>Volume</div>
+            <h1>{getCurrentBottle()?.size}</h1>
+          </div>
         </div>
       </div>
       {inventory.loading ? (
         <div>
-          <p>loading....</p>
+          <Loading />
         </div>
       ) : (
         <>
           <MeasureBottle bottle={getCurrentBottle()} complete={nextBottle} />
-          {redirect && <Redirect to='/reports' />}
+          {redirect && <Redirect to="/reports" />}
         </>
       )}
     </div>
-  )
+  );
 }
 
 function mapStateToProps(globalState) {

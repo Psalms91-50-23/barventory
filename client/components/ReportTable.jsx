@@ -13,7 +13,7 @@ function ReportTable(props) {
     <ul className="table-list">
       {reportData?.map((bottle) => {
         return (
-          <ReportItem key={`bottle_id_${bottle.id}`} data={bottle} />
+          <ReportItem key={`bottle_id_${bottle.bottleId}`} data={bottle} />
         );
       })}
     </ul>

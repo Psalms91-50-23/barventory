@@ -4,6 +4,7 @@ import PageHeader from "./PageHeader";
 import { Route } from "react-router-dom"
 import { fetchReports } from "../redux/reports"
 import ReportTable from "./ReportTable"
+import Loading from "./Loading";
 
 function Reports(props) {
 
@@ -28,9 +29,9 @@ function Reports(props) {
 
   return (
     <>
-      <h1>Reports</h1>
+      <PageHeader title="Reports" />
       {props.reports.loading ? (
-        <p>loading...</p>
+        <Loading />
       ) : (
         <div>
           <p>{findLatestReport().date}</p>

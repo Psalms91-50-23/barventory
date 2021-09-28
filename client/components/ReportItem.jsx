@@ -1,26 +1,29 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import { FaChevronRight } from "react-icons/fa";
 
 function ReportItem (props) {
   const { data } = props
   return (
     <>
       <div className="inventoryItem">
-        <div className="margin-left">
+        <div>
           <p>{data.bottleName}</p>
         </div>
-        <div className="margin-left">
-          <p>{data.bottleSize}</p>
+        <div>
+          <div>
+            <p>{data.bottleSize}</p>
+          </div>
+          <div>
+            <p>{data.fullBottles} full bottles</p> 
+          </div>
+          <div>
+            <p>{data.percent} %</p>
+          </div>
         </div>
-        <div className="margin-left">
-          <p>{data.fullBottles} full bottles</p> 
-        </div>
-        <div className="margin-left">
-          <p>{data.percent} %</p>
-        </div>
-        <div className="margin-left">   
-          <NavLink className="button" to={`/reports/${data.bottleName}`}>See</NavLink>
-        </div>
+          <NavLink className="button" to={`/reports/${data.bottleName}`}>
+            <FaChevronRight />
+          </NavLink>
       </div>
     </>
   )
