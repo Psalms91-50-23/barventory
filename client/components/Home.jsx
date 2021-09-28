@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { register, login } from "../apis/authApi";
 import PageHeader from "./PageHeader";
+import { Redirect } from "react-router";
 
 function Home(props) {
   const [showPopup, setShowPopup] = useState(false);
@@ -34,22 +35,24 @@ function Home(props) {
   function onChangeHandler(e) {
     setUserObject({
       ...userObject,
-      [e.target.name]: e.target.value
-    })
-  };
-  
+      [e.target.name]: e.target.value,
+    });
+  }
+
   function formSubmit(e) {
     setError(null);
     var func = isLogin ? login : register;
     func({
       username: userObject.username,
       name: userObject.name,
-      password: userObject.password
-    }).then(user => {
-      props.history.push("/inventory");
-    }).catch(err => {
-      setError(err);
+      password: userObject.password,
     })
+      .then((user) => {
+        props.history.push("/inventory");
+      })
+      .catch((err) => {
+        setError(err);
+      });
   }
 
   return (
@@ -85,7 +88,7 @@ function Home(props) {
               placeholder="Username"
               value={userObject.username}
               onChange={onChangeHandler}
-              />
+            />
             <input
               name="password"
               placeholder="Password"
@@ -99,6 +102,7 @@ function Home(props) {
           </div>
         </div>
       </div>
+      {localStorage.getItem("token") && <Redirect to="/inventory" />}
     </>
   );
 }
