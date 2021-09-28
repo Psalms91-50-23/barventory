@@ -6,7 +6,7 @@ import Reports from './Reports'
 import Nav from './Nav'
 import BottleSlider from './bottle-slider/BottleSlider'
 import AddBottle from './AddBottle'
-
+import MultiReport from './MultiReport'
 
 function App () {
 
@@ -16,10 +16,11 @@ function App () {
       <BrowserRouter>
         <div className="app-wrap">
           <Route exact path="/" component={Home} />
-          <Route path="/reports" component={Reports} />
+          <Route exact path="/reports" component={Reports} />
           <Route path="/inventory" component={InventoryScreen} />
           <Route path="/bottleslider" component={BottleSlider} />
           <Route path="/addbottle" component={AddBottle} />
+          <Route path="/reports/:bottleName" component={MultiReport} />
         </div>
         <Route path="/" component={Nav} />
       </BrowserRouter>

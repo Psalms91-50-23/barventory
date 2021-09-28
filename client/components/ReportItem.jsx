@@ -1,11 +1,10 @@
 import React from 'react'
-import {Route} from 'react-router-dom'
-import { deleteBottle } from '../redux/inventory'
-import { deleteInventoryItem  } from '../redux/inventory'
- 
+import { NavLink } from 'react-router-dom'
+
 function ReportItem (props) {
 
-const { data } = props
+  const { data } = props
+
   return (
     <>
       <div className="inventoryItem">
@@ -22,7 +21,7 @@ const { data } = props
           <p>{data.percent} %</p>
         </div>
         <div className="margin-left">   
-          <button> More... </button>
+          <NavLink className="button" to={`/reports/${data.bottleName}`}>See</NavLink>
         </div>
       </div>
     </>
