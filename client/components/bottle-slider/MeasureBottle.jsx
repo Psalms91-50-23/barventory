@@ -42,12 +42,12 @@ export default function MeasureBottle(props) {
   return (
     <div className="measure-bottles">
       <div className="measure-bottles-main">
-        <div className="bottle-measure-image">
-          <img src={props.bottleIMG} />
+        <div className="bottle-measure-image-container">
+          <img src={props.bottleIMG} className="bottle-measure-image" />
         </div>
         <label htmlFor="percent">
           Percent
-          <input
+          <input className='vertical-slider'
             type="range"
             name="percent"
             min="0"
