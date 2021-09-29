@@ -41,7 +41,6 @@ export function BottleSlider(props) {
     } else {
       const newReport = {
         date: (new Date()).toUTCString(),
-        users_id: 1,
         report_data: newReports
       }
       dispatch(addReport(newReport))

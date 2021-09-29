@@ -87,7 +87,7 @@ function AddBottle(props) {
                 <p>
                   {bottle.name} {bottle.size}
                 </p>
-                <button onClick={() => addOnClick(bottle.id)}> add </button>
+                <button onClick={() => addOnClick(bottle.id)}> + </button>
               </div>
             );
           })}
