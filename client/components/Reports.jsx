@@ -5,6 +5,7 @@ import { NavLink, Route } from "react-router-dom";
 import { fetchReports } from "../redux/reports";
 import ReportTable from "./ReportTable";
 import Loading from "./Loading";
+import { format } from "date-fns";
 
 function Reports(props) {
   const { dispatch } = props;
@@ -26,6 +27,8 @@ function Reports(props) {
     return props.reports.reports.find((each) => each.id == highestId);
   };
 
+  const formatDate = (date) => format(new Date(date), "E d/M yy");
+
   return (
     <>
       <PageHeader title="Reports" />
@@ -36,7 +39,7 @@ function Reports(props) {
           {props.reports.reports.length > 0 && (
             <>
               <div className="report-date-header">
-                {findLatestReport().date}
+                {formatDate(findLatestReport().date)}
               </div>
               <ReportTable key={"table"} report={findLatestReport()} />
             </>

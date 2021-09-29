@@ -51,8 +51,10 @@ function MultiReport(props) {
     });
     setReadyCheck(true);
     setHistoryArray(reportArray);
+    console.log(reportArray);
     return;
   };
+
 
   return (
     <>
