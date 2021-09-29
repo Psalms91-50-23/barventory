@@ -45,7 +45,7 @@ function Graph(props) {
           theme={{
             background: "#ffffff",
             textColor: "#333333",
-            fontSize: 11,
+            fontSize: 16,
             axis: {
               domain: {
                 line: {

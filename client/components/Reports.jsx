@@ -27,7 +27,7 @@ function Reports(props) {
     return props.reports.reports.find((each) => each.id == highestId);
   };
 
-  const formatDate = (date) => format(new Date(date), "E d/M yy");
+  const formatDate = (date) => format(new Date(date), "EEEE d/M yy");
 
   return (
     <>
@@ -39,7 +39,7 @@ function Reports(props) {
           {props.reports.reports.length > 0 && (
             <>
               <div className="report-date-header">
-                {formatDate(findLatestReport().date)}
+                Latest Report: {formatDate(findLatestReport().date)}
               </div>
               <ReportTable key={"table"} report={findLatestReport()} />
             </>

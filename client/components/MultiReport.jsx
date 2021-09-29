@@ -59,7 +59,7 @@ function MultiReport(props) {
   return (
     <>
       <PageHeader
-        title="MultiReport"
+        title={`${bottleName} \nReport`}
         leftAction={
           <NavLink className="button" to="/reports">
             <FaChevronLeft /> <span style={{ marginLeft: "5px" }}>Back</span>
