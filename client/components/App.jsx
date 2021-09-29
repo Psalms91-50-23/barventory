@@ -7,6 +7,7 @@ import Nav from './Nav'
 import BottleSlider from './bottle-slider/BottleSlider'
 import AddBottle from './AddBottle'
 import MultiReport from './MultiReport'
+import Silhouette from './Silhouette'
 
 function App () {
 
@@ -23,6 +24,7 @@ function App () {
           <Route exact path="/" component={Home} />
           <Route exact path="/reports" component={Reports} />
           <Route path="/inventory" component={InventoryScreen} />
+          <Route path="/silhouette" component={Silhouette} />
           <Route path="/bottleslider" component={BottleSlider} />
           <Route path="/addbottle" component={AddBottle} />
           <Route path="/reports/:bottleName" component={MultiReport} />
