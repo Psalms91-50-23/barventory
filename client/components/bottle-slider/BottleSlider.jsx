@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { Redirect } from "react-router";
-import { NavLink } from "react-router-dom";
+import { NavLink, Redirect } from "react-router-dom";
 import MeasureBottle from "./MeasureBottle";
 import { connect } from "react-redux"
 import { fetchInventory } from "../../redux/inventory"

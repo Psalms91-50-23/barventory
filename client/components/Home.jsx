@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { register, login } from "../apis/authApi";
 import PageHeader from "./PageHeader";
-import { Redirect } from "react-router";
+import { Redirect } from "react-router-dom";
 
 function Home(props) {
   const [showPopup, setShowPopup] = useState(false);
