@@ -91,6 +91,31 @@
         padding: 25px 25px;
         margin-top: 18px;
       }
+
+      .input-password {
+        //Show Password & Password input container
+        position: relative;
+
+        .password-show {
+          //Show Password button
+          font-weight: 600;
+          padding: 0;
+          margin: 0;
+          background: transparent;
+          position: absolute;
+          top: 5px;
+          right: 10px;
+          color: lighten($primary, 5%);
+          border: none;
+
+          &:focus,
+          &:active {
+            box-shadow: none;
+            border: none;
+            outline: none;
+          }
+        }
+      }
     }
 
     &.active {
