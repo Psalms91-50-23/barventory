@@ -6,6 +6,8 @@ import { Redirect } from "react-router";
 import { NavLink } from "react-router-dom";
 import PageHeader from "./PageHeader";
 import Loading from "./Loading";
+import { HiPlus } from "react-icons/hi";
+import { FaChevronLeft } from "react-icons/fa";
 
 function AddBottle(props) {
   const { bottlesState, dispatch, inventoryState } = props;
@@ -63,7 +65,7 @@ function AddBottle(props) {
         title="Add Bottle"
         leftAction={
           <NavLink className="button" to="/inventory">
-            Back
+            <FaChevronLeft /> <span style={{ marginLeft: "5px" }}>Back</span>
           </NavLink>
         }
       />
@@ -87,7 +89,9 @@ function AddBottle(props) {
                 <p>
                   {bottle.name} {bottle.size}
                 </p>
-                <button onClick={() => addOnClick(bottle.id)}> add </button>
+                <button onClick={() => addOnClick(bottle.id)}>
+                  <HiPlus size="24" />
+                </button>
               </div>
             );
           })}

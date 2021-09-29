@@ -5,12 +5,25 @@
     margin-top: 5%;
 }
 
+.report-column-a p,
+.report-column-b p{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
 .report-column-a {
     width: 40%;
+
+    .bottleName {
+        font-weight: 600;
+    }
 }
 
 .report-column-b {
+    width: 40%;
     margin-left: 10%;
+    font-size: 14px;
+    text-align: right;
 }
 
 .graph-container {
