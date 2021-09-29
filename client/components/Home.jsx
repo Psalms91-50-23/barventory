@@ -87,7 +87,7 @@ function Home(props) {
             <input
               name="username"
               placeholder="Username"
-              autocapitalize="off"
+              autoCapitalize="off"
               value={userObject.username}
               onChange={onChangeHandler}
             />
@@ -95,7 +95,7 @@ function Home(props) {
               <input
                 name="password"
                 type={showPassword ? "text" : "password"}
-                autocapitalize="off"
+                autoCapitalize="off"
                 placeholder="Password"
                 value={userObject.password}
                 onChange={onChangeHandler}
