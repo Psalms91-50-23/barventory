@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import PageHeader from "./PageHeader";
-import { Route } from "react-router-dom";
+import { NavLink, Route } from "react-router-dom";
 import { fetchReports } from "../redux/reports";
 import ReportTable from "./ReportTable";
 import Loading from "./Loading";
@@ -33,8 +33,23 @@ function Reports(props) {
         <Loading />
       ) : (
         <>
-          <div className="report-date-header">{findLatestReport().date}</div>
-          <ReportTable key={"table"} report={findLatestReport()} />
+          {props.reports.reports.length > 0 && (
+            <>
+              <div className="report-date-header">
+                {findLatestReport().date}
+              </div>
+              <ReportTable key={"table"} report={findLatestReport()} />
+            </>
+          )}
+          {props.reports.reports.length == 0 && (
+            <div className="empty">
+              <h1 className="text-primary">Nothing to show 🍺</h1>
+              <p>Complete a stocktake first</p>
+              <NavLink className="button" to="/inventory">
+                Inventory
+              </NavLink>
+            </div>
+          )}
         </>
       )}
     </>

@@ -86,7 +86,7 @@ function Home(props) {
             )}
             <input
               name="username"
-              placeholder="Username"
+              placeholder="Email"
               autoCapitalize="off"
               value={userObject.username}
               onChange={onChangeHandler}
