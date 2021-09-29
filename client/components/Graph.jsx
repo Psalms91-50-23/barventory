@@ -25,7 +25,7 @@ function Graph(props) {
         <ResponsiveBar
           data={historyData}
           keys={["fullBottles"]}
-          indexBy={(data) => format(new Date(data.reportDate), "E d/M yy")}
+          indexBy={(data) => format(new Date(data.reportDate), "E d/M yy h:ma")}
           margin={{ top: 50, right: 45, bottom: 100, left: 75 }}
           padding={0.25}
           valueScale={{ type: "linear" }}
