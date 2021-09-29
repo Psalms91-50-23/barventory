@@ -9,21 +9,7 @@ import { fetchInventory } from "../redux/inventory";
 
 function Nav(props) {
 
-  const { inventoryState, dispatch } = props
-  //console.log("props ", props)
-  const { inventory } = inventoryState
-  const [foundItems, setFoundItems ] = useState(false)
-
-
-  useEffect(() => {
-    dispatch(fetchInventory());
-  }, []);
-
-  useEffect(()=> {
-
-  },[inventory])
-
-  // style={this.props.canClick ? {pointerEvents: "none"} : null}
+  const { inventoryState } = props;
 
   return (
     <>
@@ -36,15 +22,15 @@ function Nav(props) {
           <FiClipboard size={24} />
           Inventory
         </NavLink>
-          <NavLink 
-            style={inventory.length?  null : {pointerEvents: "none"} }
-            className="navbar-item measure"
-            activeClassName="active"
-            to="/bottleslider"
-          >
-            <GiWineBottle size={24} />
-            Measure
-          </NavLink>
+        <NavLink
+          style={inventoryState.inventory.length ? null : { pointerEvents: "none" }}
+          className="navbar-item measure"
+          activeClassName="active"
+          to="/bottleslider"
+        >
+          <GiWineBottle size={24} />
+          Measure
+        </NavLink>
         <NavLink className="navbar-item" activeClassName="active" to="/reports">
           <SiGoogleanalytics size={24} />
           Reports
