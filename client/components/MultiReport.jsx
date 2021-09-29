@@ -58,7 +58,7 @@ function MultiReport(props) {
         title="MultiReport"
         leftAction={
           <NavLink className="button" to="/reports">
-            <FaChevronLeft /> Back
+            <FaChevronLeft /> <span style={{marginLeft: "5px"}}>Back</span>
           </NavLink>
         }
       />
