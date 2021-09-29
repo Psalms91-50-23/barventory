@@ -1,0 +1,16 @@
+{
+  "name": "Barventory",
+  "short_name": "Barventory",
+  "lang": "en-US",
+  "start_url": "/inventory",
+  "display": "fullscreen",
+  "theme_color": "#34B85B",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "icon",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
