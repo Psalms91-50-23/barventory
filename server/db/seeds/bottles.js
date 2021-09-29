@@ -4,6 +4,7 @@ exports.seed = (knex) => {
     .then(() => {
       return knex("bottles").insert([
         {
+          "id": 0,
           "name": "1800 Reserva Coconut",
           "size": "750ml",
           "size_num": 750,
@@ -11,6 +12,7 @@ exports.seed = (knex) => {
           "silhouette": "/img/silhouette-smirnoff-vodka-1000ml.svg"
         },
         {
+          "id": 1,
           "name": "1800 Tequila Reserva Añejo",
           "size": "750ml",
           "size_num": 750,
