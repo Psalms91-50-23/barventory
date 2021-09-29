@@ -1,16 +1,18 @@
 const database = require("./connection")
 
 //get all reports
-function getAllReports(db = database) {
-  return db("reports").select()
+function getAllReports(userID, db = database) {
+  return db("reports")
+    .where("users_id", userID)
+    .select()
 }
 
 //add a report
-function addReport(report, db = database) {
+function addReport(report, userId, db = database) {
   const newReport = {
     id:report.id,
     date:report.date,
-    users_id:report.users_id,
+    users_id: userId,
     report_data: JSON.stringify(report.report_data)
   }
   return db("reports").insert(newReport)

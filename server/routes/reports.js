@@ -5,14 +5,14 @@ const authMiddleware = require("../middleware");
 const db = require('../db/reports.js');
 
 router.get('/', authMiddleware, (req, res) => {
-    db.getAllReports()
+    db.getAllReports(req.user.id)
     .then(reports => {
       res.json(reports)
     }) 
   })
 
 router.post('/addReport', authMiddleware, (req, res) => {
-    db.addReport(req.body)
+    db.addReport(req.body, req.user.id)
     .then(id => {
         db.getReportById(id)
         .then(report => {
