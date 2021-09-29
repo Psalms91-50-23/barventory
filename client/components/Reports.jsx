@@ -34,7 +34,9 @@ function Reports(props) {
         <Loading />
       ) : (
         <div>
-          <p>{findLatestReport().date}</p>
+          <div className="report-date-header">
+            {findLatestReport().date}
+          </div>
           <div>
             <ReportTable key={"table"} report={findLatestReport()}/>
           </div>

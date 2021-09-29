@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react"
 import { Redirect } from "react-router";
 import { NavLink } from "react-router-dom";
 import MeasureBottle from "./MeasureBottle";
-import PageHeader from "../PageHeader";
 import { connect } from "react-redux"
 import { fetchInventory } from "../../redux/inventory"
 import { addReport } from "../../redux/reports"
@@ -78,7 +77,7 @@ export function BottleSlider(props) {
         </div>
       ) : (
         <>
-          <MeasureBottle bottle={getCurrentBottle()} complete={nextBottle} />
+          <MeasureBottle bottle={getCurrentBottle()} complete={nextBottle} bottleIMG={inventory.inventory[progress].image}/>
           {redirect && <Redirect to="/reports" />}
         </>
       )}
