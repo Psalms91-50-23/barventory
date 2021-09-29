@@ -20,7 +20,7 @@ function ReportItem (props) {
             <p>{data.fullBottles} Full Bottles</p> 
           </div>
           <div className="bottlePercent">
-            <p> + {(data.percent)*100} %</p>
+            <p> + {Math.round((data.percent)*100)} %</p>
           </div>
         </div>
         <NavLink className="button" to={`/reports/${data.bottleName}`}>
