@@ -35,7 +35,6 @@ const Silhouette = () => {
           </div>
         </>
       )}
-      {/* <Webcam mirrored={false}/> */}
       {!image && (
         <>
           <Camera facingMode="environment" ref={camera} />

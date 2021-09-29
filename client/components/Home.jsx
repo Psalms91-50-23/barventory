@@ -9,6 +9,7 @@ function Home(props) {
 
   //Login or Register
   const [isLogin, setIsLogin] = useState(true);
+  const [showPassword, setShowPassword] = useState(false);
 
   const [userObject, setUserObject] = useState({
     username: "",
@@ -79,7 +80,6 @@ function Home(props) {
               <input
                 name="name"
                 placeholder="Name"
-                autocapitalize="off"
                 value={userObject.name}
                 onChange={onChangeHandler}
                 />
@@ -90,14 +90,23 @@ function Home(props) {
               autocapitalize="off"
               value={userObject.username}
               onChange={onChangeHandler}
-              />
-            <input
-              name="password"
-              placeholder="Password"
-              autocapitalize="off"
-              value={userObject.password}
-              onChange={onChangeHandler}
             />
+            <div class="w-100 input-password">
+              <input
+                name="password"
+                type={showPassword ? "text" : "password"}
+                autocapitalize="off"
+                placeholder="Password"
+                value={userObject.password}
+                onChange={onChangeHandler}
+              />
+              {userObject.password && <button
+                class="button password-show"
+                onClick={(e) => setShowPassword((p) => !p)}
+              >
+                {showPassword ? "Hide" : "Show"}
+              </button>}
+            </div>
             <button className="submit" onClick={formSubmit}>
               {getTitle()}
             </button>
