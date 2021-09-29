@@ -82,8 +82,8 @@ function Home(props) {
                 placeholder="Name"
                 value={userObject.name}
                 onChange={onChangeHandler}
-                />
-                )}
+              />
+            )}
             <input
               name="username"
               placeholder="Username"
@@ -91,7 +91,7 @@ function Home(props) {
               value={userObject.username}
               onChange={onChangeHandler}
             />
-            <div class="w-100 input-password">
+            <div className="w-100 input-password">
               <input
                 name="password"
                 type={showPassword ? "text" : "password"}
@@ -100,12 +100,14 @@ function Home(props) {
                 value={userObject.password}
                 onChange={onChangeHandler}
               />
-              {userObject.password && <button
-                class="button password-show"
-                onClick={(e) => setShowPassword((p) => !p)}
-              >
-                {showPassword ? "Hide" : "Show"}
-              </button>}
+              {userObject.password && (
+                <button
+                  className="button password-show"
+                  onClick={(e) => setShowPassword((p) => !p)}
+                >
+                  {showPassword ? "Hide" : "Show"}
+                </button>
+              )}
             </div>
             <button className="submit" onClick={formSubmit}>
               {getTitle()}

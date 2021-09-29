@@ -26,20 +26,20 @@ const Silhouette = () => {
     <div className="silhouette-wrap">
       {image && (
         <>
-          <img class="taken-photo" src={image} alt="Taken photo" />
-          <div className="wrap-wrap">
-            <div className="overlay-indicator">
-              <div className="inner" style={{ height: height + "%" }}></div>
-            </div>
-            <div className="silhouette-overlay"></div>
-          </div>
+          <img className="taken-photo" src={image} alt="Taken photo" />
         </>
       )}
+      <div className="wrap-wrap">
+        <div className="overlay-indicator">
+          {image && (<div className="inner" style={{ height: height + "%" }}></div>)}
+        </div>
+        <div className="silhouette-overlay"></div>
+      </div>
       {!image && (
         <>
           <Camera facingMode="environment" ref={camera} />
           <button
-            class="camera-button"
+            className="camera-button"
             onClick={() => setImage(camera.current.takePhoto())}
           />
         </>
