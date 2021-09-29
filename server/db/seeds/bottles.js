@@ -146,7 +146,7 @@ exports.seed = (knex) => {
           "silhouette": "/img/silhouette-smirnoff-vodka-1000ml.svg"
         },
         {
-          "name": "Amarula Cream &amp; Marula Fruit",
+          "name": "Amarula Cream & Marula Fruit",
           "size": "700ml",
           "size_num": 700,
           "image": "https://taumarunui.superliquor.co.nz/images/thumbs/0005305_550.jpeg",
@@ -258,7 +258,7 @@ exports.seed = (knex) => {
           "silhouette": "/img/silhouette-smirnoff-vodka-1000ml.svg"
         },
         {
-          "name": "Baileys Strawberries &amp; Cream Limited Edition",
+          "name": "Baileys Strawberries & Cream Limited Edition",
           "size": "700ml",
           "size_num": 700,
           "image": "https://taumarunui.superliquor.co.nz/images/thumbs/0001917_550.jpeg",
@@ -335,7 +335,7 @@ exports.seed = (knex) => {
           "silhouette": "/img/silhouette-smirnoff-vodka-1000ml.svg"
         },
         {
-          "name": "Bombay Bramble Gin with Blackberry &amp; Raspberry",
+          "name": "Bombay Bramble Gin with Blackberry & Raspberry",
           "size": "700ml",
           "size_num": 700,
           "image": "https://taumarunui.superliquor.co.nz/images/thumbs/0004655_550.jpeg",
@@ -755,7 +755,7 @@ exports.seed = (knex) => {
           "silhouette": "/img/silhouette-smirnoff-vodka-1000ml.svg"
         },
         {
-          "name": "Gentleman Jack &amp; 2 Glasses Gift Pack",
+          "name": "Gentleman Jack & 2 Glasses Gift Pack",
           "size": "700ml",
           "size_num": 700,
           "image": "https://taumarunui.superliquor.co.nz/images/thumbs/0001873_550.jpeg",
@@ -818,7 +818,7 @@ exports.seed = (knex) => {
           "silhouette": "/img/silhouette-smirnoff-vodka-1000ml.svg"
         },
         {
-          "name": "Glenfiddich Experimental Series Fire &amp; Cane Single Malt",
+          "name": "Glenfiddich Experimental Series Fire & Cane Single Malt",
           "size": "700ml",
           "size_num": 700,
           "image": "https://taumarunui.superliquor.co.nz/images/thumbs/0005117_550.jpeg",
@@ -888,7 +888,7 @@ exports.seed = (knex) => {
           "silhouette": "/img/silhouette-smirnoff-vodka-1000ml.svg"
         },
         {
-          "name": "Grand Marnier Cordon Rouge Orange &amp; Cognac Liqueur",
+          "name": "Grand Marnier Cordon Rouge Orange & Cognac Liqueur",
           "size": "700ml",
           "size_num": 700,
           "image": "https://taumarunui.superliquor.co.nz/images/thumbs/0002578_550.jpeg",
@@ -1014,7 +1014,7 @@ exports.seed = (knex) => {
           "silhouette": "/img/silhouette-smirnoff-vodka-1000ml.svg"
         },
         {
-          "name": "J &amp; B Rare Whisky",
+          "name": "J & B Rare Whisky",
           "size": "1 Litre",
           "size_num": 1000,
           "image": "https://taumarunui.superliquor.co.nz/images/thumbs/0001274_550.jpeg",
@@ -1112,7 +1112,7 @@ exports.seed = (knex) => {
           "silhouette": "/img/silhouette-smirnoff-vodka-1000ml.svg"
         },
         {
-          "name": "Jameson Cold Brew Whiskey &amp; Coffee",
+          "name": "Jameson Cold Brew Whiskey & Coffee",
           "size": "700ml",
           "size_num": 700,
           "image": "https://taumarunui.superliquor.co.nz/images/thumbs/0003721_jameson-cold-brew-whiskey-coffee-700ml_550.jpeg",
@@ -1574,7 +1574,7 @@ exports.seed = (knex) => {
           "silhouette": "/img/silhouette-smirnoff-vodka-1000ml.svg"
         },
         {
-          "name": "O'Mara's Strawberries &amp; Cream",
+          "name": "O'Mara's Strawberries & Cream",
           "size": "700ml",
           "size_num": 700,
           "image": "https://taumarunui.superliquor.co.nz/images/thumbs/0005137_550.jpeg",
