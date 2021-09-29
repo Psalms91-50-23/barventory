@@ -15,7 +15,6 @@ function Graph(props) {
   console.log(historyData);
   return (
     <>
-      <h1>I'm a Graph</h1>
       <ResponsiveBar
         data={historyData}
         keys={["fullBottles"]}
