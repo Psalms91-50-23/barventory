@@ -25,7 +25,7 @@ function Graph(props) {
           data={historyData}
           keys={["fullBottles"]}
           indexBy="reportDate"
-          margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
+          margin={{ top: 50, right: 45, bottom: 100, left: 75 }}
           padding={0.25}
           valueScale={{ type: "linear" }}
           indexScale={{ type: "band", round: true }}
