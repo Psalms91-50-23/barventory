@@ -79,19 +79,22 @@ function Home(props) {
               <input
                 name="name"
                 placeholder="Name"
+                autocapitalize="off"
                 value={userObject.name}
                 onChange={onChangeHandler}
-              />
-            )}
+                />
+                )}
             <input
               name="username"
               placeholder="Username"
+              autocapitalize="off"
               value={userObject.username}
               onChange={onChangeHandler}
-            />
+              />
             <input
               name="password"
               placeholder="Password"
+              autocapitalize="off"
               value={userObject.password}
               onChange={onChangeHandler}
             />
