@@ -23,7 +23,9 @@ function MultiReport(props) {
     reports.reports.map((report) => {
       //Go into each report_data property
       //Map through it (Array)
-      const reportData = JSON.parse(report.report_data);
+      var reportData = report.report_data;
+      if (typeof report.report_data == "string")
+        reportData = JSON.parse(report.report_data);
       var reportDate = report.date;
       var reportObject = {};
       var isHit = false;
@@ -58,7 +60,7 @@ function MultiReport(props) {
         title="MultiReport"
         leftAction={
           <NavLink className="button" to="/reports">
-            <FaChevronLeft /> <span style={{marginLeft: "5px"}}>Back</span>
+            <FaChevronLeft /> <span style={{ marginLeft: "5px" }}>Back</span>
           </NavLink>
         }
       />

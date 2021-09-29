@@ -3,7 +3,10 @@ import ReportItem from "./ReportItem";
 
 function ReportTable(props) {
   const { report } = props;
-  const reportData = JSON.parse(report.report_data)
+
+  var reportData = report.report_data;
+  if (typeof report.report_data == "string")
+    reportData = JSON.parse(report.report_data);
 
   return (
     <ul className="table-list">
